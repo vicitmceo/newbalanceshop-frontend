@@ -1,0 +1,38 @@
+{
+  "brand": {
+    "title": "New Balance Shop",
+    "subtitle": "Інтернет-магазин спортивного одягу та взуття"
+  },
+  "nav": {
+    "catalog": "Каталог",
+    "orders": "Мої замовлення"
+  },
+  "catalog": {
+    "title": "Каталог товарів",
+    "count": "{{count}} товар",
+    "count_few": "{{count}} товари",
+    "count_many": "{{count}} товарів",
+    "size": "Розмір",
+    "addToCart": "В кошик"
+  },
+  "cart": {
+    "title": "Кошик",
+    "empty": "Кошик порожній",
+    "total": "Разом",
+    "customerId": "ID покупця",
+    "checkout": "Оформити замовлення"
+  },
+  "orders": {
+    "title": "Мої замовлення",
+    "empty": "Замовлень поки немає",
+    "order": "Замовлення",
+    "total": "Разом"
+  },
+  "common": {
+    "loading": "Завантаження...",
+    "ok": "OK",
+    "requestError": "Помилка запиту: {{status}}"
+  },
+  "orderSuccess": "Замовлення #{{id}} оформлено! Сума: {{price}} ₴",
+  "footer": "© New Balance Shop — курсовий проєкт, Team 1"
+}

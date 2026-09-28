@@ -1,0 +1,37 @@
+{
+  "brand": {
+    "title": "New Balance Shop",
+    "subtitle": "Boutique en ligne de vêtements et chaussures de sport"
+  },
+  "nav": {
+    "catalog": "Catalogue",
+    "orders": "Mes commandes"
+  },
+  "catalog": {
+    "title": "Catalogue des produits",
+    "count_one": "{{count}} produit",
+    "count_other": "{{count}} produits",
+    "size": "Taille",
+    "addToCart": "Ajouter au panier"
+  },
+  "cart": {
+    "title": "Panier",
+    "empty": "Votre panier est vide",
+    "total": "Total",
+    "customerId": "ID client",
+    "checkout": "Passer la commande"
+  },
+  "orders": {
+    "title": "Mes commandes",
+    "empty": "Aucune commande pour le moment",
+    "order": "Commande",
+    "total": "Total"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "ok": "OK",
+    "requestError": "Erreur de requête : {{status}}"
+  },
+  "orderSuccess": "Commande #{{id}} passée ! Montant : {{price}} UAH",
+  "footer": "© New Balance Shop — projet de cours, Team 1"
+}
