@@ -33,5 +33,9 @@
     "requestError": "Erreur de requête : {{status}}"
   },
   "orderSuccess": "Commande #{{id}} passée ! Montant : {{price}} UAH",
+  "github": {
+    "login": "Se connecter avec GitHub",
+    "logout": "Se déconnecter"
+  },
   "footer": "© New Balance Shop — projet de cours, Team 1"
 }

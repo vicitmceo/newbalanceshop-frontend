@@ -34,5 +34,14 @@
     "requestError": "Помилка запиту: {{status}}"
   },
   "orderSuccess": "Замовлення #{{id}} оформлено! Сума: {{price}} ₴",
+  "github": {
+    "login": "Увійти через GitHub",
+    "logout": "Вийти"
+  },
+  "auth": {
+    "googleLogin": "Увійти через Google",
+    "logout": "Вийти",
+    "hello": "Привіт, {{name}}"
+  },
   "footer": "© New Balance Shop — курсовий проєкт, Team 1"
 }

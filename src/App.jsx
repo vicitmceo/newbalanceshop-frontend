@@ -27,6 +27,7 @@ export default function App() {
     const [error, setError] = useState(null);
     const [order, setOrder] = useState(null);
     const [customerId, setCustomerId] = useState(1);
+    const [githubUser, setGithubUser] = useState(null);
 
     const loadProducts = useCallback(async () => {
         try {
@@ -63,6 +64,26 @@ export default function App() {
         setLoading(true);
         Promise.all([loadProducts(), loadCart()]).finally(() => setLoading(false));
     }, [loadProducts, loadCart]);
+
+    useEffect(() => {
+        fetch(`${API_BASE_URL}/api/auth/github/me`, { credentials: 'include' })
+            .then((res) => (res.ok ? res.json() : null))
+            .then((data) => setGithubUser(data))
+            .catch(() => setGithubUser(null));
+
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('githubLogin') || params.has('githubError')) {
+            params.delete('githubLogin');
+            params.delete('githubError');
+            const query = params.toString();
+            window.history.replaceState({}, '', window.location.pathname + (query ? `?${query}` : ''));
+        }
+    }, []);
+
+    const githubLogout = async () => {
+        await fetch(`${API_BASE_URL}/api/auth/github/logout`, { method: 'POST', credentials: 'include' });
+        setGithubUser(null);
+    };
 
     useEffect(() => {
         if (activeTab === 'orders') loadOrders(customerId);
@@ -131,6 +152,17 @@ export default function App() {
                         </button>
                     </nav>
                     <LanguageSwitcher />
+                    {githubUser ? (
+                        <div className="github-user">
+                            {githubUser.avatarUrl && <img src={githubUser.avatarUrl} alt={githubUser.login} className="github-avatar" />}
+                            <span>{githubUser.name || githubUser.login}</span>
+                            <button className="btn btn-ghost" onClick={githubLogout}>{t('github.logout')}</button>
+                        </div>
+                    ) : (
+                        <a className="btn btn-github" href={`${API_BASE_URL}/api/auth/github/login`}>
+                            {t('github.login')}
+                        </a>
+                    )}
                     <div className="cart-badge">🛒 {cart.length}</div>
                 </div>
             </header>
