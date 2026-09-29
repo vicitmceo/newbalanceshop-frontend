@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './components/LanguageSwitcher.jsx';
+import GoogleLoginButton from './components/GoogleLoginButton.jsx';
 import './App.css';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://newbalanceshop-api.onrender.com';
@@ -28,6 +29,8 @@ export default function App() {
     const [order, setOrder] = useState(null);
     const [customerId, setCustomerId] = useState(1);
     const [githubUser, setGithubUser] = useState(null);
+    const [customer, setCustomer] = useState(null);
+    const [brokenImages, setBrokenImages] = useState({});
 
     const loadProducts = useCallback(async () => {
         try {
@@ -66,6 +69,16 @@ export default function App() {
     }, [loadProducts, loadCart]);
 
     useEffect(() => {
+        fetch(`${API_BASE_URL}/api/auth/me`, { credentials: 'include' })
+            .then((res) => (res.ok ? res.json() : null))
+            .then((data) => {
+                if (data) {
+                    setCustomer(data);
+                    setCustomerId(data.id);
+                }
+            })
+            .catch(() => setCustomer(null));
+
         fetch(`${API_BASE_URL}/api/auth/github/me`, { credentials: 'include' })
             .then((res) => (res.ok ? res.json() : null))
             .then((data) => setGithubUser(data))
@@ -130,13 +143,9 @@ export default function App() {
         <div className="app">
             <header className="header">
                 <div className="header-inner">
-                    <div className="brand">
-                        <span className="brand-icon">👟</span>
-                        <div className="brand-text">
-                            <span className="brand-title">{t('brand.title')}</span>
-                            <span className="brand-sub">{t('brand.subtitle')}</span>
-                        </div>
-                    </div>
+                    <span className="brand">
+                        <span className="brand-title">{t('brand.title')}</span>
+                    </span>
                     <nav className="nav">
                         <button
                             className={`nav-btn ${activeTab === 'catalog' ? 'active' : ''}`}
@@ -151,21 +160,39 @@ export default function App() {
                             {t('nav.orders')}
                         </button>
                     </nav>
-                    <LanguageSwitcher />
-                    {githubUser ? (
-                        <div className="github-user">
-                            {githubUser.avatarUrl && <img src={githubUser.avatarUrl} alt={githubUser.login} className="github-avatar" />}
-                            <span>{githubUser.name || githubUser.login}</span>
-                            <button className="btn btn-ghost" onClick={githubLogout}>{t('github.logout')}</button>
-                        </div>
-                    ) : (
-                        <a className="btn btn-github" href={`${API_BASE_URL}/api/auth/github/login`}>
-                            {t('github.login')}
-                        </a>
-                    )}
-                    <div className="cart-badge">🛒 {cart.length}</div>
+                    <div className="header-actions">
+                        <LanguageSwitcher />
+                        <GoogleLoginButton
+                            customer={customer}
+                            apiBaseUrl={API_BASE_URL}
+                            onLogin={(c) => { setCustomer(c); setCustomerId(c.id); }}
+                            onLogout={() => setCustomer(null)}
+                        />
+                        {githubUser ? (
+                            <div className="github-user">
+                                {githubUser.avatarUrl && <img src={githubUser.avatarUrl} alt={githubUser.login} className="github-avatar" />}
+                                <span>{githubUser.name || githubUser.login}</span>
+                                <button className="btn btn-ghost" onClick={githubLogout}>{t('github.logout')}</button>
+                            </div>
+                        ) : (
+                            <a className="btn btn-github" href={`${API_BASE_URL}/api/auth/github/login`}>
+                                {t('github.login')}
+                            </a>
+                        )}
+                        <div className="cart-badge">{t('cart.title')} · {cart.length}</div>
+                    </div>
                 </div>
             </header>
+
+            {activeTab === 'catalog' && (
+                <div className="hero">
+                    <div className="hero-inner">
+                        <span className="hero-eyebrow">{t('hero.eyebrow')}</span>
+                        <h1 className="hero-title">{t('brand.subtitle')}</h1>
+                        <p className="hero-subtitle">{t('hero.subtitle')}</p>
+                    </div>
+                </div>
+            )}
 
             <main className="main">
                 {error && <div className="alert">{t('common.requestError', { status: error })}</div>}
@@ -238,6 +265,21 @@ export default function App() {
                             <div className="grid">
                                 {products.map((p) => (
                                     <div key={p.id} className="card">
+                                        <div className="card-thumb">
+                                            {p.imageUrl && !brokenImages[p.id] ? (
+                                                <img
+                                                    src={p.imageUrl}
+                                                    alt={p.name}
+                                                    loading="lazy"
+                                                    onError={() => setBrokenImages((prev) => ({ ...prev, [p.id]: true }))}
+                                                />
+                                            ) : (
+                                                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M6 40c0-3 2-5 5-6l9-3 12-9c2-2 5-2 7-1l14 7c3 1 5 4 5 7v4c0 2-2 4-4 4H10c-2 0-4-2-4-4v-3z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+                                                    <path d="M20 22v9" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                                                </svg>
+                                            )}
+                                        </div>
                                         <div className="card-body">
                                             <h3>{p.name}</h3>
                                             <p className="brand-name">{p.brand}</p>

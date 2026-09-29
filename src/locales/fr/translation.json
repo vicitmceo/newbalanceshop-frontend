@@ -33,9 +33,18 @@
     "requestError": "Erreur de requête : {{status}}"
   },
   "orderSuccess": "Commande #{{id}} passée ! Montant : {{price}} UAH",
+  "hero": {
+    "eyebrow": "Nouvelle saison",
+    "subtitle": "Vêtements et chaussures de sport techniques pour l'entraînement et la ville"
+  },
   "github": {
     "login": "Se connecter avec GitHub",
     "logout": "Se déconnecter"
+  },
+  "auth": {
+    "googleLogin": "Se connecter avec Google",
+    "logout": "Se déconnecter",
+    "hello": "Bonjour, {{name}}"
   },
   "footer": "© New Balance Shop — projet de cours, Team 1"
 }

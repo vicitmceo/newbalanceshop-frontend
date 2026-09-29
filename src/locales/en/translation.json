@@ -33,9 +33,18 @@
     "requestError": "Request error: {{status}}"
   },
   "orderSuccess": "Order #{{id}} placed! Total: {{price}} UAH",
+  "hero": {
+    "eyebrow": "New season",
+    "subtitle": "Technical sportswear and footwear for daily training and the street"
+  },
   "github": {
     "login": "Login with GitHub",
     "logout": "Logout"
+  },
+  "auth": {
+    "googleLogin": "Sign in with Google",
+    "logout": "Logout",
+    "hello": "Hi, {{name}}"
   },
   "footer": "© New Balance Shop — course project, Team 1"
 }
