@@ -12,7 +12,8 @@
     "count_one": "{{count}} produit",
     "count_other": "{{count}} produits",
     "size": "Taille",
-    "addToCart": "Ajouter au panier"
+    "addToCart": "Ajouter au panier",
+    "newBadge": "Nouveau"
   },
   "cart": {
     "title": "Panier",

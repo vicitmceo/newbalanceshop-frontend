@@ -1,7 +1,8 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './components/LanguageSwitcher.jsx';
 import GoogleLoginButton from './components/GoogleLoginButton.jsx';
+import ProductArt from './components/ProductArt.jsx';
 import './App.css';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://newbalanceshop-api.onrender.com';
@@ -30,7 +31,8 @@ export default function App() {
     const [customerId, setCustomerId] = useState(1);
     const [githubUser, setGithubUser] = useState(null);
     const [customer, setCustomer] = useState(null);
-    const [brokenImages, setBrokenImages] = useState({});
+    const [accountOpen, setAccountOpen] = useState(false);
+    const accountRef = useRef(null);
 
     const loadProducts = useCallback(async () => {
         try {
@@ -99,6 +101,14 @@ export default function App() {
     };
 
     useEffect(() => {
+        const onClickOutside = (e) => {
+            if (accountRef.current && !accountRef.current.contains(e.target)) setAccountOpen(false);
+        };
+        document.addEventListener('mousedown', onClickOutside);
+        return () => document.removeEventListener('mousedown', onClickOutside);
+    }, []);
+
+    useEffect(() => {
         if (activeTab === 'orders') loadOrders(customerId);
     }, [activeTab, customerId, loadOrders]);
 
@@ -144,6 +154,10 @@ export default function App() {
             <header className="header">
                 <div className="header-inner">
                     <span className="brand">
+                        <svg className="brand-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" rx="8" fill="var(--nb-black)" />
+                            <path d="M10 30V10h5.2l9.6 13.6V10H30v20h-5.2L15.2 16.4V30H10z" fill="var(--nb-red)" />
+                        </svg>
                         <span className="brand-title">{t('brand.title')}</span>
                     </span>
                     <nav className="nav">
@@ -162,30 +176,78 @@ export default function App() {
                     </nav>
                     <div className="header-actions">
                         <LanguageSwitcher />
-                        <GoogleLoginButton
-                            customer={customer}
-                            apiBaseUrl={API_BASE_URL}
-                            onLogin={(c) => { setCustomer(c); setCustomerId(c.id); }}
-                            onLogout={() => setCustomer(null)}
-                        />
-                        {githubUser ? (
-                            <div className="github-user">
-                                {githubUser.avatarUrl && <img src={githubUser.avatarUrl} alt={githubUser.login} className="github-avatar" />}
-                                <span>{githubUser.name || githubUser.login}</span>
-                                <button className="btn btn-ghost" onClick={githubLogout}>{t('github.logout')}</button>
-                            </div>
-                        ) : (
-                            <a className="btn btn-github" href={`${API_BASE_URL}/api/auth/github/login`}>
-                                {t('github.login')}
-                            </a>
-                        )}
-                        <div className="cart-badge">{t('cart.title')} · {cart.length}</div>
+
+                        <div className="account" ref={accountRef}>
+                            <button
+                                className={`icon-toggle ${customer || githubUser ? 'is-signed-in' : ''}`}
+                                onClick={() => setAccountOpen((v) => !v)}
+                                aria-label="account"
+                            >
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
+                                    <circle cx="12" cy="8" r="3.5" />
+                                    <path d="M4.5 20c1.6-4 5-6 7.5-6s5.9 2 7.5 6" strokeLinecap="round" />
+                                </svg>
+                            </button>
+
+                            {accountOpen && (
+                                <div className="account-menu">
+                                    {customer ? (
+                                        <div className="account-row">
+                                            <span className="account-name">{customer.fullName}</span>
+                                            <GoogleLoginButton
+                                                customer={customer}
+                                                apiBaseUrl={API_BASE_URL}
+                                                onLogin={(c) => { setCustomer(c); setCustomerId(c.id); }}
+                                                onLogout={() => setCustomer(null)}
+                                            />
+                                        </div>
+                                    ) : (
+                                        <GoogleLoginButton
+                                            customer={customer}
+                                            apiBaseUrl={API_BASE_URL}
+                                            onLogin={(c) => { setCustomer(c); setCustomerId(c.id); }}
+                                            onLogout={() => setCustomer(null)}
+                                        />
+                                    )}
+
+                                    <div className="account-divider" />
+
+                                    {githubUser ? (
+                                        <div className="account-row">
+                                            {githubUser.avatarUrl && <img src={githubUser.avatarUrl} alt={githubUser.login} className="github-avatar" />}
+                                            <span className="account-name">{githubUser.name || githubUser.login}</span>
+                                            <button className="btn btn-ghost" onClick={githubLogout}>{t('github.logout')}</button>
+                                        </div>
+                                    ) : (
+                                        <a className="btn btn-github" href={`${API_BASE_URL}/api/auth/github/login`}>
+                                            {t('github.login')}
+                                        </a>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+
+                        <button className="cart-badge" onClick={() => setActiveTab('catalog')}>
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2">
+                                <circle cx="9" cy="20" r="1.4" />
+                                <circle cx="18" cy="20" r="1.4" />
+                                <path d="M2.5 3h2l2.2 12.4a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L21 7H6" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                            {cart.length}
+                        </button>
                     </div>
                 </div>
             </header>
 
             {activeTab === 'catalog' && (
                 <div className="hero">
+                    <svg className="hero-art" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path
+                            d="M18 84c0-9 6-14 14-17l30-11c8-9 20-19 32-22 7-2 13-1 18 3l34 26c8 3 14 8 14 17v10c0 5-5 9-10 9H26c-5 0-8-4-8-9v-6z"
+                            fill="none" stroke="currentColor" strokeWidth="1.4"
+                        />
+                        <path d="M20 96h140c6 12-2 20-14 20H34c-9 0-14-8-14-20z" fill="none" stroke="currentColor" strokeWidth="1.4" />
+                    </svg>
                     <div className="hero-inner">
                         <span className="hero-eyebrow">{t('hero.eyebrow')}</span>
                         <h1 className="hero-title">{t('brand.subtitle')}</h1>
@@ -263,22 +325,11 @@ export default function App() {
                             </div>
                         ) : (
                             <div className="grid">
-                                {products.map((p) => (
+                                {products.map((p, i) => (
                                     <div key={p.id} className="card">
                                         <div className="card-thumb">
-                                            {p.imageUrl && !brokenImages[p.id] ? (
-                                                <img
-                                                    src={p.imageUrl}
-                                                    alt={p.name}
-                                                    loading="lazy"
-                                                    onError={() => setBrokenImages((prev) => ({ ...prev, [p.id]: true }))}
-                                                />
-                                            ) : (
-                                                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M6 40c0-3 2-5 5-6l9-3 12-9c2-2 5-2 7-1l14 7c3 1 5 4 5 7v4c0 2-2 4-4 4H10c-2 0-4-2-4-4v-3z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
-                                                    <path d="M20 22v9" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                                                </svg>
-                                            )}
+                                            {i === 0 && <span className="card-badge">{t('catalog.newBadge')}</span>}
+                                            <ProductArt name={p.name} color={p.color} />
                                         </div>
                                         <div className="card-body">
                                             <h3>{p.name}</h3>

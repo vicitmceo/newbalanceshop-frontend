@@ -13,7 +13,8 @@
     "count_few": "{{count}} товари",
     "count_many": "{{count}} товарів",
     "size": "Розмір",
-    "addToCart": "В кошик"
+    "addToCart": "В кошик",
+    "newBadge": "Новинка"
   },
   "cart": {
     "title": "Кошик",
