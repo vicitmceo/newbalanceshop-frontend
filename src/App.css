@@ -702,3 +702,77 @@ body {
     font-size: 12px;
     border-top: 1px solid var(--nb-gray-200);
 }
+
+/* ---------- Mobile ---------- */
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.layout > *, .grid > * {
+    min-width: 0;
+}
+
+@media (max-width: 640px) {
+    .header-inner {
+        flex-wrap: wrap;
+        gap: 10px 12px;
+        padding: 10px 16px;
+    }
+
+    .brand-title {
+        font-size: 17px;
+    }
+
+    .header-actions {
+        gap: 8px;
+    }
+
+    .nav {
+        order: 3;
+        flex: 1 0 100%;
+        gap: 22px;
+        overflow-x: auto;
+        white-space: nowrap;
+        border-top: 1px solid var(--nb-gray-200);
+        padding-top: 8px;
+    }
+
+    .nav-btn {
+        flex-shrink: 0;
+    }
+
+    .hero {
+        padding: 40px 16px;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+    }
+
+    .hero-art {
+        width: 70%;
+        right: -15%;
+    }
+
+    .main {
+        padding: 24px 16px 48px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 20px 12px;
+    }
+}
+
+@media (max-width: 640px) {
+    .card-footer {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+}
