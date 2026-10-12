@@ -329,7 +329,7 @@ export default function App() {
                                     <div key={p.id} className="card">
                                         <div className="card-thumb">
                                             {i === 0 && <span className="card-badge">{t('catalog.newBadge')}</span>}
-                                            <ProductArt name={p.name} color={p.color} />
+                                            <ProductArt name={p.name} color={p.color} categoryId={p.categoryId} />
                                         </div>
                                         <div className="card-body">
                                             <h3>{p.name}</h3>
