@@ -22,7 +22,8 @@ export default function ProductImage({ product, view = 0, className = '', eager 
                     src={product.imageUrl}
                     alt={product.name}
                     style={style}
-                    loading={eager ? 'eager' : 'lazy'}
+                    loading={eager ? "eager" : "lazy"}
+                    decoding="async"
                     onError={() => setFailed(true)}
                 />
             ) : (
