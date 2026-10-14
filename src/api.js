@@ -1,4 +1,9 @@
-export const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://newbalanceshop-api.onrender.com';
+// На сайті запити йдуть на той самий домен (/api/...), а Vercel проксує їх на сервер.
+// Так сесійна кука стає «рідною» для сайту й не блокується браузером як стороння.
+export const API_BASE_URL = '';
+
+// Пряма адреса сервера: потрібна лише для переходу на GitHub OAuth (повноцінна навігація, не fetch).
+export const BACKEND_URL = import.meta.env.VITE_API_URL || 'https://newbalanceshop-api.onrender.com';
 
 // Помилка запиту: status — HTTP-код (0 — мережа недоступна), message — текст від сервера, якщо він є.
 export class ApiError extends Error {

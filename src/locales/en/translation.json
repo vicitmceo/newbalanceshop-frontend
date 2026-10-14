@@ -76,7 +76,10 @@
     "removeFav": "Remove from favorites",
     "size": "Size",
     "chooseSize": "choose a size",
-    "photoBy": "Photo: {{author}}"
+    "photoBy": "Photo: {{author}}",
+    "chooseSizeFull": "Please choose a size first",
+    "addedFav": "Added to favorites",
+    "removedFav": "Removed from favorites"
   },
   "cart": {
     "title": "Cart",

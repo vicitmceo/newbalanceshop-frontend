@@ -77,7 +77,10 @@
     "removeFav": "Retirer des favoris",
     "size": "Taille",
     "chooseSize": "choisissez une taille",
-    "photoBy": "Photo : {{author}}"
+    "photoBy": "Photo : {{author}}",
+    "chooseSizeFull": "Choisissez d'abord une taille",
+    "addedFav": "Ajouté aux favoris",
+    "removedFav": "Retiré des favoris"
   },
   "cart": {
     "title": "Panier",

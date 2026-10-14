@@ -74,13 +74,7 @@ export default function CatalogPage() {
     return (
         <>
             <div className="hero">
-                <svg className="hero-art" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <path
-                        d="M18 84c0-9 6-14 14-17l30-11c8-9 20-19 32-22 7-2 13-1 18 3l34 26c8 3 14 8 14 17v10c0 5-5 9-10 9H26c-5 0-8-4-8-9v-6z"
-                        fill="none" stroke="currentColor" strokeWidth="1.4"
-                    />
-                    <path d="M20 96h140c6 12-2 20-14 20H34c-9 0-14-8-14-20z" fill="none" stroke="currentColor" strokeWidth="1.4" />
-                </svg>
+                <div className="hero-photo" style={{ backgroundImage: "url(/images/nb1906r.jpg)" }} role="img" aria-label="New Balance 1906R" />
                 <div className="hero-inner">
                     <span className="hero-eyebrow">{t('hero.eyebrow')}</span>
                     <h1 className="hero-title">{t('brand.subtitle')}</h1>
