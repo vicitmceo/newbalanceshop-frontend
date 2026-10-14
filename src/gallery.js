@@ -5,6 +5,7 @@ const CREDITS = {
     '/images/nb990w.jpg': 'slgckgc, CC BY 2.0',
     '/images/nb-freshfoam.jpg': 'Ser Amantio di Nicolao, CC BY-SA 4.0',
     '/images/nb-trailmore.jpg': 'Ssu, CC BY-SA 4.0',
+    '/images/nb-beanie.jpg': 'ajay_suresh, CC BY 2.0',
     '/images/nb-hoodie-life.jpg': 'Patryk Sobczak, CC0',
     '/images/nb-jacket-life.jpg': 'Stephen Arnold, CC0',
     '/images/nb-run-life.jpg': 'Alex wong, CC0',

@@ -18,3 +18,9 @@ Lifestyle photos used as extra gallery images for clothing (Unsplash uploads on 
 - nb-hoodie-life.jpg: Patryk Sobczak patryksobczak, CC0, https://commons.wikimedia.org/wiki/File:Person_in_a_hoodie_(Unsplash).jpg
 - nb-jacket-life.jpg: Stephen Arnold iamarnold, CC0, https://commons.wikimedia.org/wiki/File:Jacket_With_A_Hood_(Unsplash).jpg
 - nb-run-life.jpg: Alex wong killerfvith, CC0, https://commons.wikimedia.org/wiki/File:Running_along_the_beach_(Unsplash).jpg
+
+Product photos for accessories and clothing (Wikimedia Commons):
+
+- nb-cap.jpg: TexasRebel, Public domain, https://commons.wikimedia.org/wiki/File:Baseball_cap.jpg
+- nb-tee.jpg: Elkagye, Public domain, https://commons.wikimedia.org/wiki/File:T-shirt2.jpg
+- nb-beanie.jpg: ajay_suresh, CC BY 2.0, https://commons.wikimedia.org/wiki/File:Beanie_-_Knit_Cap_(51013511676).jpg
