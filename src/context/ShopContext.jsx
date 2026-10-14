@@ -104,25 +104,27 @@ export function ShopProvider({ children }) {
     }, []);
 
     // ---- кошик ----
-    const addToCart = useCallback(async (productId, quantity = 1) => {
-        const data = await api('/api/Cart', { method: 'POST', body: { productId, quantity }, lang });
+    const addToCart = useCallback(async (productId, quantity = 1, size = '') => {
+        const data = await api('/api/Cart', { method: 'POST', body: { productId, quantity, size }, lang });
         setCart(data);
         return data;
     }, [lang]);
 
-    const setQuantity = useCallback(async (productId, quantity) => {
-        const data = await api(`/api/Cart/${productId}`, { method: 'PUT', body: { quantity }, lang });
+    const sizeQuery = (size) => (size ? `?size=${encodeURIComponent(size)}` : '');
+
+    const setQuantity = useCallback(async (productId, quantity, size = '') => {
+        const data = await api(`/api/Cart/${productId}${sizeQuery(size)}`, { method: 'PUT', body: { quantity }, lang });
         setCart(data);
     }, [lang]);
 
-    const removeFromCart = useCallback(async (productId) => {
-        setCart(await api(`/api/Cart/${productId}`, { method: 'DELETE', lang }));
+    const removeFromCart = useCallback(async (productId, size = '') => {
+        setCart(await api(`/api/Cart/${productId}${sizeQuery(size)}`, { method: 'DELETE', lang }));
     }, [lang]);
 
     const clearCart = useCallback(async () => {
         let data = cart;
         for (const item of cart) {
-            data = await api(`/api/Cart/${item.productId}`, { method: 'DELETE', lang });
+            data = await api(`/api/Cart/${item.productId}${sizeQuery(item.size)}`, { method: 'DELETE', lang });
         }
         setCart(data);
     }, [cart, lang]);

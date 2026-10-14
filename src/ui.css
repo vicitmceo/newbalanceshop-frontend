@@ -374,3 +374,25 @@ a.cart-badge { text-decoration: none; }
     .table td::before { content: attr(data-label); color: var(--nb-gray-400); font-size: 12px; text-transform: uppercase; text-align: left; }
     .table .actions { justify-content: flex-end; }
 }
+
+/* ---------- Вибір розміру ---------- */
+
+.sizes { display: flex; flex-wrap: wrap; gap: 8px; }
+.size-chip {
+    min-width: 52px;
+    padding: 10px 12px;
+    border: 1px solid var(--nb-gray-200);
+    border-radius: var(--radius);
+    background: #fff;
+    color: var(--nb-gray-900);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.size-chip:hover { border-color: var(--nb-black); }
+.size-chip.active { background: var(--nb-black); border-color: var(--nb-black); color: #fff; }
+.size-chip:focus-visible { outline: 2px solid var(--nb-red); outline-offset: 2px; }
+.sizes-error .size-chip { border-color: var(--bad); }
+.size-error { color: var(--bad); text-transform: none; letter-spacing: 0; }
+.cart-line-size { font-size: 13px; color: var(--nb-gray-900); font-weight: 600; }

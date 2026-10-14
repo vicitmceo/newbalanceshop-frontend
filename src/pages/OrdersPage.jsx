@@ -55,8 +55,8 @@ export default function OrdersPage() {
                             <div className="order-card-date">{new Date(o.createdAt).toLocaleString(i18n.language)}</div>
                             <ul className="order-items">
                                 {o.items.map((item) => (
-                                    <li key={item.productId}>
-                                        <Link to={`/product/${item.productId}`}>{item.productName}</Link> × {item.quantity} — {money(item.unitPrice * item.quantity)}
+                                    <li key={`${item.productId}-${item.size}`}>
+                                        <Link to={`/product/${item.productId}`}>{item.productName}</Link>{item.size ? ` (${item.size})` : ''} × {item.quantity} — {money(item.unitPrice * item.quantity)}
                                     </li>
                                 ))}
                             </ul>

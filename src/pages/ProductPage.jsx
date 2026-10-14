@@ -5,6 +5,7 @@ import { api, ApiError } from '../api.js';
 import ProductImage from '../components/ProductImage.jsx';
 import ProductCard, { colorLabel, stockLabel } from '../components/ProductCard.jsx';
 import { useMoney } from '../components/useMoney.js';
+import { creditFor, galleryFor, sizesOf } from '../gallery.js';
 import { useShop } from '../context/ShopContext.jsx';
 
 export default function ProductPage() {
@@ -17,16 +18,21 @@ export default function ProductPage() {
     const [status, setStatus] = useState('loading');
     const [view, setView] = useState(0);
     const [qty, setQty] = useState(1);
+    const [size, setSize] = useState('');
+    const [sizeError, setSizeError] = useState(false);
 
     useEffect(() => {
         let cancelled = false;
         setStatus('loading');
         setView(0);
         setQty(1);
+        setSize('');
+        setSizeError(false);
         api(`/api/Products/${id}`, { lang: i18n.language })
             .then((p) => {
                 if (cancelled) return;
                 setProduct(p);
+                if (sizesOf(p).length === 1) setSize(sizesOf(p)[0]);
                 setStatus('ok');
                 api(`/api/Products?categoryId=${p.categoryId}`)
                     .then((list) => { if (!cancelled) setSimilar(list.filter((x) => x.id !== p.id).slice(0, 4)); })
@@ -47,15 +53,24 @@ export default function ProductPage() {
     }
 
     const stock = stockLabel(t, product.stock);
-    const inCart = cart.find((i) => i.productId === product.id)?.quantity ?? 0;
+    const sizes = sizesOf(product);
+    const frames = galleryFor(product);
+    const frame = frames[view] ?? frames[0];
+    const credit = creditFor(frame.src);
+    const inCart = cart.filter((i) => i.productId === product.id).reduce((sum, i) => sum + i.quantity, 0);
     const maxQty = Math.max(0, product.stock - inCart);
     const fav = favorites.includes(product.id);
-    const views = [t('product.view1'), t('product.view2'), t('product.view3')];
+    const hasRealGallery = frames.every((f) => f.view === 0) && frames[0].src;
+    const viewLabels = [t('product.view1'), t('product.view2'), t('product.view3')];
 
     const add = async () => {
+        if (sizes.length > 1 && !size) {
+            setSizeError(true);
+            return;
+        }
         try {
-            await addToCart(product.id, qty);
-            notify(`${t('product.added')}: ${product.name} × ${qty}`, 'success');
+            await addToCart(product.id, qty, size);
+            notify(`${t('product.added')}: ${product.name}${size && sizes.length > 1 ? ` (${size})` : ''} × ${qty}`, 'success');
             setQty(1);
         } catch (err) {
             notify(errorText(err), 'error');
@@ -75,24 +90,25 @@ export default function ProductPage() {
             <div className="pdp">
                 <div className="gallery">
                     <div className="gallery-main">
-                        <ProductImage product={product} view={view} eager />
+                        <ProductImage product={product} image={frame} eager />
                     </div>
                     <div className="gallery-thumbs" role="tablist" aria-label="photos">
-                        {views.map((label, i) => (
+                        {frames.map((f, i) => (
                             <button
-                                key={label}
+                                key={`${f.src}-${f.view}-${i}`}
                                 role="tab"
                                 aria-selected={view === i}
                                 className={`thumb ${view === i ? 'active' : ''}`}
                                 onClick={() => setView(i)}
-                                title={label}
+                                title={hasRealGallery ? `${i + 1}` : viewLabels[i]}
                             >
-                                <ProductImage product={product} view={i} />
-                                <span className="thumb-label">{label}</span>
+                                <ProductImage product={product} image={f} />
+                                {!hasRealGallery && <span className="thumb-label">{viewLabels[i]}</span>}
                             </button>
                         ))}
                     </div>
-                    {product.imageUrl && <p className="photo-note">{t('product.photoNote')}</p>}
+                    {credit && <p className="photo-note">{t('product.photoBy', { author: credit })}</p>}
+                    {!hasRealGallery && frames[0].src && <p className="photo-note">{t('product.photoNote')}</p>}
                 </div>
 
                 <div className="pdp-info">
@@ -108,9 +124,28 @@ export default function ProductPage() {
                     <dl className="specs">
                         <dt>{t('product.category')}</dt><dd>{t(`categories.${product.categoryId}`)}</dd>
                         <dt>{t('catalog.brand')}</dt><dd>{product.brand}</dd>
-                        <dt>{t('catalog.size')}</dt><dd>{product.size}</dd>
+                        <dt>{t('catalog.sizes')}</dt><dd>{sizes.join(', ')}</dd>
                         <dt>{t('product.color')}</dt><dd>{colorLabel(t, product.color)}</dd>
                     </dl>
+
+                    {sizes.length > 1 && (
+                        <>
+                            <h2 className="pdp-h">{t('product.size')}{sizeError && <span className="size-error"> — {t('product.chooseSize')}</span>}</h2>
+                            <div className={`sizes ${sizeError ? 'sizes-error' : ''}`} role="radiogroup" aria-label={t('product.size')}>
+                                {sizes.map((sz) => (
+                                    <button
+                                        key={sz}
+                                        role="radio"
+                                        aria-checked={size === sz}
+                                        className={`size-chip ${size === sz ? 'active' : ''}`}
+                                        onClick={() => { setSize(sz); setSizeError(false); }}
+                                    >
+                                        {sz}
+                                    </button>
+                                ))}
+                            </div>
+                        </>
+                    )}
 
                     <div className="buy-row">
                         <div className="qty" aria-label={t('product.quantity')}>

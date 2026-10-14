@@ -1,0 +1,14 @@
+# Photo credits
+
+Product photos are taken from Wikimedia Commons and used under free licenses.
+
+| File | Author | License | Source |
+|---|---|---|---|
+| nb574.jpg, nb550.jpg, nb480.jpg, nb1906r.jpg, nb1906d.jpg, nb2002r.jpg, nb-numeric480.jpg | LeDroider | CC0 | https://commons.wikimedia.org/wiki/Category:New_Balance |
+| nb574-b.jpg | MIKI Yoshihito (Sapporo, Japan) | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:New_Balance_574_Classic._(16643317234).jpg |
+| nb574-c.jpg | MIKI Yoshihito (Sapporo, Japan) | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:New_Balance_574_Classic._(17079561049).jpg |
+| nb990w.jpg | slgckgc | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:New_Balance_Women%27s_990_Running_Shoes.jpg |
+| nb-freshfoam.jpg | Ser Amantio di Nicolao | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:New_Balance_Fresh_Foam_shoe_on_display.jpg |
+| nb-trailmore.jpg | Ssu | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:New_Balance_-_Trail_More_running_shoes.jpg |
+
+Images were resized and recompressed. Clothing and accessories are vector illustrations drawn for this project.

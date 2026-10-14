@@ -94,7 +94,7 @@ function UsersTab() {
 }
 
 // ---------- Товари ----------
-const EMPTY_PRODUCT = { name: '', brand: 'New Balance', categoryId: 1, size: '', color: '', price: '', stock: '', imageUrl: '', description: '' };
+const EMPTY_PRODUCT = { name: '', brand: 'New Balance', categoryId: 1, size: '', color: '', price: '', stock: '', imageUrl: '', extraImages: '', description: '' };
 
 function ProductForm({ initial, onClose, onSaved }) {
     const { t } = useTranslation();
@@ -134,7 +134,7 @@ function ProductForm({ initial, onClose, onSaved }) {
                     </label>
                 </div>
                 <div className="f-row">
-                    <label className="f"><span>{t('admin.size')}</span><input className="input" value={form.size} onChange={set('size')} /></label>
+                    <label className="f"><span>{t('admin.sizes')}</span><input className="input" maxLength={120} placeholder="40,41,42,43" value={form.size} onChange={set('size')} /></label>
                     <label className="f"><span>{t('admin.color')}</span><input className="input" value={form.color} onChange={set('color')} /></label>
                 </div>
                 <div className="f-row">
@@ -142,6 +142,7 @@ function ProductForm({ initial, onClose, onSaved }) {
                     <label className="f"><span>{t('admin.stock')}</span><input className="input" type="number" min="0" step="1" required value={form.stock} onChange={set('stock')} /></label>
                 </div>
                 <label className="f"><span>{t('admin.image')}</span><input className="input" maxLength={300} value={form.imageUrl} onChange={set('imageUrl')} /></label>
+                <label className="f"><span>{t('admin.extraImages')}</span><input className="input" maxLength={1000} placeholder="/images/a.jpg,/images/b.jpg" value={form.extraImages} onChange={set('extraImages')} /></label>
                 <label className="f"><span>{t('admin.description')}</span><textarea className="input" rows={3} maxLength={1000} value={form.description} onChange={set('description')} /></label>
                 <div className="row-actions">
                     <button className="btn btn-ghost" type="button" onClick={onClose}>{t('common.cancel')}</button>
@@ -258,7 +259,7 @@ function OrdersTab() {
                             <td data-label="#">{o.id}</td>
                             <td data-label={t('admin.customer')}>{nameOf(o.customerId)}</td>
                             <td data-label={t('admin.date')}>{new Date(o.createdAt).toLocaleString(i18n.language)}</td>
-                            <td data-label={t('orders.title')}>{o.items.map((i) => `${i.productName} × ${i.quantity}`).join(', ')}</td>
+                            <td data-label={t('orders.title')}>{o.items.map((i) => `${i.productName}${i.size ? ` (${i.size})` : ''} × ${i.quantity}`).join(', ')}</td>
                             <td data-label={t('admin.total')}>{money(o.totalPrice)}</td>
                             <td data-label={t('admin.status')}>
                                 <select className="input input-small" value={statusKey(o.status)} onChange={(e) => changeStatus(o, e.target.value)}>
