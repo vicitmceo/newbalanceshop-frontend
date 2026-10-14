@@ -91,22 +91,75 @@ function Hoodie({ p }) {
     );
 }
 
+
+function Cap({ p }) {
+    return (
+        <g stroke="rgba(0,0,0,0.28)" strokeWidth="1.2" strokeLinejoin="round">
+            <ellipse cx="102" cy="150" rx="70" ry="5" fill="rgba(0,0,0,0.16)" stroke="none" />
+            <path d="M48 124 Q46 66 98 58 Q152 64 152 112 L152 124 Z" fill={p.body} />
+            <path d="M98 58 Q84 90 88 124" fill="none" />
+            <path d="M98 58 Q112 90 116 124" fill="none" />
+            <circle cx="98" cy="57" r="4" fill={p.dark} />
+            <path d="M128 114 Q174 110 188 126 Q160 134 128 128 Z" fill={p.dark} />
+            <path d="M48 124 H152 L152 132 Q100 138 48 132 Z" fill={p.accent} />
+            <text x="100" y="108" textAnchor="middle" fill={p.ink} stroke="none" fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif" fontWeight="800" fontSize="20">NB</text>
+        </g>
+    );
+}
+
+function Backpack({ p }) {
+    return (
+        <g stroke="rgba(0,0,0,0.28)" strokeWidth="1.2" strokeLinejoin="round">
+            <ellipse cx="100" cy="168" rx="46" ry="5" fill="rgba(0,0,0,0.16)" stroke="none" />
+            <path d="M84 50 Q84 34 100 34 Q116 34 116 50" fill="none" strokeWidth="4" />
+            <rect x="60" y="46" width="80" height="118" rx="28" fill={p.body} />
+            <rect x="70" y="102" width="60" height="50" rx="10" fill={p.dark} />
+            <path d="M70 114 H130" fill="none" stroke={p.ink} strokeOpacity="0.5" />
+            <path d="M76 66 H124" fill="none" stroke={p.ink} strokeOpacity="0.5" strokeWidth="2.4" strokeLinecap="round" />
+            <rect x="54" y="92" width="8" height="40" rx="4" fill={p.accent} />
+            <rect x="138" y="92" width="8" height="40" rx="4" fill={p.accent} />
+            <text x="100" y="140" textAnchor="middle" fill={p.ink} stroke="none" fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif" fontWeight="800" fontSize="16">NB</text>
+        </g>
+    );
+}
+
+function Tee({ p }) {
+    return (
+        <g stroke="rgba(0,0,0,0.28)" strokeWidth="1.2" strokeLinejoin="round">
+            <ellipse cx="100" cy="170" rx="52" ry="5" fill="rgba(0,0,0,0.16)" stroke="none" />
+            <path d="M72 44 L100 54 L128 44 L166 66 L148 96 L134 88 L134 160 L66 160 L66 88 L52 96 L34 66 Z" fill={p.body} />
+            <path d="M82 46 Q100 70 118 46" fill={p.dark} />
+            <path d="M52 96 L34 66 L44 60 L60 86 Z" fill={p.dark} opacity="0.35" stroke="none" />
+            <path d="M148 96 L166 66 L156 60 L140 86 Z" fill={p.dark} opacity="0.35" stroke="none" />
+            <text x="100" y="108" textAnchor="middle" fill={p.ink} stroke="none" fontFamily="'Helvetica Neue', Helvetica, Arial, sans-serif" fontWeight="800" fontSize="18">NB</text>
+        </g>
+    );
+}
+
+function kindOf(name, categoryId) {
+    const n = (name || '').toLowerCase();
+    if (categoryId === 1) return 'sneaker';
+    if (/cap|кепк|бейсбол/.test(n)) return 'cap';
+    if (/backpack|рюкзак|bag/.test(n)) return 'backpack';
+    if (/tee|shirt|футбол/.test(n)) return 'tee';
+    return 'hoodie';
+}
+
 export default function ProductArt({ name, color, categoryId }) {
     const palette = paletteFor(color);
-    const lower = (name || '').toLowerCase();
-    const isApparel = categoryId ? categoryId !== 1 : /hood|худі|jacket|tee/.test(lower);
-    const bgId = `pa-bg-${isApparel ? 'a' : 's'}-${(color || 'x').replace(/\W/g, '')}`;
+    const kind = kindOf(name, categoryId);
+    const bgId = `pa-bg-${kind}-${(color || 'x').replace(/\W/g, '')}`;
 
     return (
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label={name}>
+        <svg viewBox="-33.4 0 266.8 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label={name}>
             <defs>
                 <radialGradient id={bgId} cx="50%" cy="40%" r="75%">
                     <stop offset="0%" stopColor="#f4f5f7" />
                     <stop offset="100%" stopColor="#c9ced6" />
                 </radialGradient>
             </defs>
-            <rect width="200" height="200" fill={`url(#${bgId})`} />
-            {isApparel ? <Hoodie p={palette} /> : <Sneaker p={palette} />}
+            <rect x="-34" width="268" height="200" fill={`url(#${bgId})`} />
+            {{ sneaker: <Sneaker p={palette} />, cap: <Cap p={palette} />, backpack: <Backpack p={palette} />, tee: <Tee p={palette} />, hoodie: <Hoodie p={palette} /> }[kind]}
         </svg>
     );
 }
