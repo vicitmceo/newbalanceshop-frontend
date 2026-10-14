@@ -22,17 +22,22 @@ export default function Layout() {
     const [menuOpen, setMenuOpen] = useState(false);
     const menuRef = useRef(null);
 
-    // GitHub після входу повертає на сайт з ?githubLogin=success / ?githubError=...: показуємо результат і чистимо адресу
-    const { refreshMe } = useShop();
+    // GitHub після входу повертає на сайт з ?ghcode=... (одноразовий код) або ?githubError=...:
+    // обмінюємо код на сесію через наш домен, показуємо результат і чистимо адресу
+    const { loginGithub } = useShop();
     useEffect(() => {
         const params = new URLSearchParams(location.search);
-        if (params.has('githubLogin')) {
-            refreshMe().then((me) => me && notify(t('auth.welcome', { name: me.fullName }), 'success'));
+        const code = params.get('ghcode');
+        if (code) {
+            loginGithub(code)
+                .then((me) => notify(t('auth.welcome', { name: me.fullName }), 'success'))
+                .catch(() => notify(t('auth.githubFailed'), 'error'));
         } else if (params.has('githubError')) {
             notify(params.get('githubError') === 'account_blocked' ? t('auth.blocked') : t('auth.githubFailed'), 'error');
         } else {
             return;
         }
+        params.delete('ghcode');
         params.delete('githubLogin');
         params.delete('githubError');
         const query = params.toString();

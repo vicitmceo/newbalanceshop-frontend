@@ -60,7 +60,7 @@ export default function ProductPage() {
     const inCart = cart.filter((i) => i.productId === product.id).reduce((sum, i) => sum + i.quantity, 0);
     const maxQty = Math.max(0, product.stock - inCart);
     const fav = favorites.includes(product.id);
-    const hasRealGallery = frames.every((f) => f.view === 0) && frames[0].src;
+    const hasRealGallery = frames.every((f) => f.view === 0);
     const viewLabels = [t('product.view1'), t('product.view2'), t('product.view3')];
 
     const add = async () => {
@@ -108,7 +108,7 @@ export default function ProductPage() {
                         ))}
                     </div>
                     {credit && <p className="photo-note">{t('product.photoBy', { author: credit })}</p>}
-                    {!hasRealGallery && frames[0].src && <p className="photo-note">{t('product.photoNote')}</p>}
+                    {!hasRealGallery && <p className="photo-note">{t('product.photoNote')}</p>}
                 </div>
 
                 <div className="pdp-info">

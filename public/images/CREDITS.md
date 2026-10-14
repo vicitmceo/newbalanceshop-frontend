@@ -12,3 +12,9 @@ Product photos are taken from Wikimedia Commons and used under free licenses.
 | nb-trailmore.jpg | Ssu | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:New_Balance_-_Trail_More_running_shoes.jpg |
 
 Images were resized and recompressed. Clothing and accessories are vector illustrations drawn for this project.
+
+Lifestyle photos used as extra gallery images for clothing (Unsplash uploads on Wikimedia Commons, CC0):
+
+- nb-hoodie-life.jpg: Patryk Sobczak patryksobczak, CC0, https://commons.wikimedia.org/wiki/File:Person_in_a_hoodie_(Unsplash).jpg
+- nb-jacket-life.jpg: Stephen Arnold iamarnold, CC0, https://commons.wikimedia.org/wiki/File:Jacket_With_A_Hood_(Unsplash).jpg
+- nb-run-life.jpg: Alex wong killerfvith, CC0, https://commons.wikimedia.org/wiki/File:Running_along_the_beach_(Unsplash).jpg

@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider, isFirebaseConfigured } from '../firebase/firebase.js';
-import { API_BASE_URL } from '../api.js';
+import { BACKEND_URL } from '../api.js';
 import { useShop } from '../context/ShopContext.jsx';
 
 // Вхід через Google (Firebase) і GitHub (OAuth на бекенді). Після GitHub користувача
@@ -27,7 +27,7 @@ export default function SocialLogin({ onDone }) {
         }
     };
 
-    const githubHref = `${API_BASE_URL}/api/auth/github/login?returnUrl=${encodeURIComponent(window.location.origin)}`;
+    const githubHref = `${BACKEND_URL}/api/auth/github/login?returnUrl=${encodeURIComponent(window.location.origin)}`;
 
     return (
         <div className="social">

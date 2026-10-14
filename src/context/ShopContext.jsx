@@ -96,6 +96,13 @@ export function ShopProvider({ children }) {
         return me;
     }, [refreshCart]);
 
+    const loginGithub = useCallback(async (code) => {
+        const me = await api('/api/auth/github/exchange', { method: 'POST', body: { code } });
+        setCustomer(me);
+        refreshCart();
+        return me;
+    }, [refreshCart]);
+
     const logout = useCallback(async () => {
         try { await signOut(auth); } catch { /* Firebase міг не бути налаштований */ }
         try { await api('/api/auth/github/logout', { method: 'POST' }); } catch { /* немає GitHub-сесії */ }
@@ -149,7 +156,7 @@ export function ShopProvider({ children }) {
 
     const value = {
         customer, setCustomer, authReady, refreshMe,
-        login, register, loginGoogle, logout,
+        login, register, loginGoogle, loginGithub, logout,
         cart, cartCount, cartTotal, addToCart, setQuantity, removeFromCart, clearCart, checkout, refreshCart,
         favorites, toggleFavorite,
         toasts, notify, errorText,

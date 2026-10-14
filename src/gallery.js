@@ -5,24 +5,22 @@ const CREDITS = {
     '/images/nb990w.jpg': 'slgckgc, CC BY 2.0',
     '/images/nb-freshfoam.jpg': 'Ser Amantio di Nicolao, CC BY-SA 4.0',
     '/images/nb-trailmore.jpg': 'Ssu, CC BY-SA 4.0',
+    '/images/nb-hoodie-life.jpg': 'Patryk Sobczak, CC0',
+    '/images/nb-jacket-life.jpg': 'Stephen Arnold, CC0',
+    '/images/nb-run-life.jpg': 'Alex wong, CC0',
 };
 
 export function creditFor(src) {
     return CREDITS[src] || '';
 }
 
-// Кадри товару для галереї. Якщо реальних фото щонайменше три, показуємо їх;
-// інакше доповнюємо збільшеними кадрами першого фото (логотип і низ) або трьома кадрами малюнка.
+// Кадри товару для галереї: головне зображення (фото або малюнок), додаткові фото з ExtraImages
+// і, якщо кадрів менше трьох, збільшені фрагменти головного зображення (логотип і низ).
 export function galleryFor(product) {
-    const photos = [product.imageUrl, ...(product.extraImages || '').split(',')]
-        .map((s) => (s || '').trim())
-        .filter(Boolean);
-
-    if (photos.length >= 3) return photos.map((src) => ({ src, view: 0 }));
-    if (photos.length === 0) return [0, 1, 2].map((view) => ({ src: null, view }));
-
-    const frames = photos.map((src) => ({ src, view: 0 }));
-    for (let view = 1; frames.length < 3; view += 1) frames.push({ src: photos[0], view });
+    const main = (product.imageUrl || '').trim() || null;
+    const extras = (product.extraImages || '').split(',').map((x) => x.trim()).filter(Boolean);
+    const frames = [{ src: main, view: 0 }, ...extras.map((src) => ({ src, view: 0 }))];
+    for (let view = 1; frames.length < 3; view += 1) frames.push({ src: main, view });
     return frames;
 }
 

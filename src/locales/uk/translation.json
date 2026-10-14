@@ -78,7 +78,10 @@
     "removeFav": "Прибрати з обраного",
     "size": "Розмір",
     "chooseSize": "оберіть розмір",
-    "photoBy": "Фото: {{author}}"
+    "photoBy": "Фото: {{author}}",
+    "chooseSizeFull": "Спочатку оберіть розмір",
+    "addedFav": "Додано в обране",
+    "removedFav": "Прибрано з обраного"
   },
   "cart": {
     "title": "Кошик",
