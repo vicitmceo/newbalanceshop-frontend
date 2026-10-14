@@ -26,3 +26,8 @@ Sneaker photos added later:
 - nb574w.jpg: Linda Xu rhindaxu, CC0, https://commons.wikimedia.org/wiki/File:Womens_New_Balance_shoes_(Unsplash).jpg
 - nb1062.jpg: Juan Fernández, CC BY-SA 2.0, https://commons.wikimedia.org/wiki/File:New_Balance_1062.jpg
 - nb1225.jpg: slgckgc, CC BY 2.0, https://commons.wikimedia.org/wiki/File:New_Balance_1225_Running_Shoes.jpg
+
+Clothing photos (Wikimedia Commons):
+
+- nb-shorts.jpg: unknown, CC BY 2.5, https://commons.wikimedia.org/wiki/File:Running-shorts-black.png
+- nb-socks.jpg: Venemaa; Petseri rajoon, Põrste küla; valmistaja: Helü, Linda; fotograaf: Tuul, Toomas, CC0, https://commons.wikimedia.org/wiki/File:Villased_sokid,_STM_1998.jpg
