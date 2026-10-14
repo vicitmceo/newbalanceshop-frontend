@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import ProductImage from './ProductImage.jsx';
 import { useMoney } from './useMoney.js';
+import { sizesOf, sizeSummary } from '../gallery.js';
 import { useShop } from '../context/ShopContext.jsx';
 
 export function colorLabel(t, color) {
@@ -19,13 +20,20 @@ export function stockLabel(t, stock) {
 export default function ProductCard({ product, isNew = false }) {
     const { t } = useTranslation();
     const money = useMoney();
+    const navigate = useNavigate();
+    const sizes = sizesOf(product);
     const { addToCart, notify, errorText, favorites, toggleFavorite } = useShop();
     const fav = favorites.includes(product.id);
     const stock = stockLabel(t, product.stock);
 
     const add = async () => {
+        // кілька розмірів: розмір обирають на сторінці товару
+        if (sizes.length > 1) {
+            navigate(`/product/${product.id}`);
+            return;
+        }
         try {
-            await addToCart(product.id, 1);
+            await addToCart(product.id, 1, sizes[0] || '');
             notify(`${t('product.added')}: ${product.name}`, 'success');
         } catch (err) {
             notify(errorText(err), 'error');
@@ -53,12 +61,12 @@ export default function ProductCard({ product, isNew = false }) {
             <div className="card-body">
                 <h3><Link to={`/product/${product.id}`}>{product.name}</Link></h3>
                 <p className="brand-name">{product.brand}</p>
-                <p className="meta">{t('catalog.size')} {product.size} · {colorLabel(t, product.color)}</p>
+                <p className="meta">{sizes.length > 1 ? `${t('catalog.sizes')} ${sizeSummary(product)}` : `${t('catalog.size')} ${sizes[0] || '—'}`} · {colorLabel(t, product.color)}</p>
                 <p className={`stock stock-${stock.tone}`}>{stock.text}</p>
                 <div className="card-footer">
                     <span className="price">{money(product.price)}</span>
                     <button className="btn btn-primary" onClick={add} disabled={product.stock <= 0}>
-                        {t('catalog.addToCart')}
+                        {sizes.length > 1 ? t('catalog.chooseSize') : t('catalog.addToCart')}
                     </button>
                 </div>
             </div>

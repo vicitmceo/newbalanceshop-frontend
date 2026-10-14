@@ -49,22 +49,23 @@ export default function CartPage() {
                 <div className="cart-layout">
                     <ul className="cart-lines">
                         {cart.map((item) => (
-                            <li key={item.productId} className="cart-line">
+                            <li key={`${item.productId}-${item.size}`} className="cart-line">
                                 <Link to={`/product/${item.productId}`} className="cart-line-img">
-                                    <ProductImage product={{ imageUrl: item.imageUrl, name: item.productName, color: '', categoryId: 1 }} />
+                                    <ProductImage product={{ imageUrl: item.imageUrl, name: item.productName, color: '' }} />
                                 </Link>
                                 <div className="cart-line-info">
                                     <Link to={`/product/${item.productId}`} className="cart-line-name">{item.productName}</Link>
+                                    {item.size && <span className="cart-line-size">{t('catalog.size')}: {item.size}</span>}
                                     <span className="cart-line-price">{money(item.price)}</span>
                                     <div className="qty" aria-label={t('cart.qty')}>
-                                        <button disabled={busy || item.quantity <= 1} onClick={() => run(() => setQuantity(item.productId, item.quantity - 1))} aria-label="-">−</button>
+                                        <button disabled={busy || item.quantity <= 1} onClick={() => run(() => setQuantity(item.productId, item.quantity - 1, item.size))} aria-label="-">−</button>
                                         <span>{item.quantity}</span>
-                                        <button disabled={busy} onClick={() => run(() => setQuantity(item.productId, item.quantity + 1))} aria-label="+">+</button>
+                                        <button disabled={busy} onClick={() => run(() => setQuantity(item.productId, item.quantity + 1, item.size))} aria-label="+">+</button>
                                     </div>
                                 </div>
                                 <div className="cart-line-end">
                                     <strong>{money(item.price * item.quantity)}</strong>
-                                    <button className="link-btn" disabled={busy} onClick={() => run(() => removeFromCart(item.productId))}>{t('cart.remove')}</button>
+                                    <button className="link-btn" disabled={busy} onClick={() => run(() => removeFromCart(item.productId, item.size))}>{t('cart.remove')}</button>
                                 </div>
                             </li>
                         ))}

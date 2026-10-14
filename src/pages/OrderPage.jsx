@@ -70,8 +70,8 @@ export default function OrderPage() {
                 <h3>{t('order.items')}</h3>
                 <ul className="order-lines">
                     {cart.map((i) => (
-                        <li key={i.productId}>
-                            <span>{i.productName} × {i.quantity}</span>
+                        <li key={`${i.productId}-${i.size}`}>
+                            <span>{i.productName}{i.size ? ` (${i.size})` : ''} × {i.quantity}</span>
                             <span>{money(i.price * i.quantity)}</span>
                         </li>
                     ))}

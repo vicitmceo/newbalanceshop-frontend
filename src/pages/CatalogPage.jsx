@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { api } from '../api.js';
 import ProductCard from '../components/ProductCard.jsx';
+import { compareSizes, sizesOf } from '../gallery.js';
 import { useShop } from '../context/ShopContext.jsx';
 
 const CATEGORY_IDS = [1, 2, 3];
@@ -64,7 +65,7 @@ export default function CatalogPage() {
     }, [cat, q, brand, min, max, size, sort, i18n.language, errorText]);
 
     const brands = useMemo(() => [...new Set(allProducts.map((p) => p.brand))].sort(), [allProducts]);
-    const sizes = useMemo(() => [...new Set(allProducts.map((p) => p.size))].sort(), [allProducts]);
+    const sizes = useMemo(() => [...new Set(allProducts.flatMap(sizesOf))].sort(compareSizes), [allProducts]);
     const hasFilters = Boolean(cat || q || brand || min || max || size || sort);
     const newIds = useMemo(() => new Set([...allProducts].sort((a, b) => b.id - a.id).slice(0, 3).map((p) => p.id)), [allProducts]);
 

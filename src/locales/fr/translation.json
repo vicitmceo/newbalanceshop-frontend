@@ -40,7 +40,9 @@
     "empty": "Aucun résultat pour ces filtres",
     "inStock": "En stock",
     "lowStock": "Plus que {{count}}",
-    "outOfStock": "Rupture de stock"
+    "outOfStock": "Rupture de stock",
+    "sizes": "Tailles",
+    "chooseSize": "Choisir la taille"
   },
   "categories": {
     "1": "Baskets",
@@ -72,7 +74,10 @@
     "photoNote": "Les détails sont des agrandissements de la photo du produit",
     "similar": "Produits similaires",
     "addFav": "Ajouter aux favoris",
-    "removeFav": "Retirer des favoris"
+    "removeFav": "Retirer des favoris",
+    "size": "Taille",
+    "chooseSize": "choisissez une taille",
+    "photoBy": "Photo : {{author}}"
   },
   "cart": {
     "title": "Panier",
@@ -199,7 +204,9 @@
     "total": "Total",
     "statusUpdated": "Statut mis à jour",
     "noOrders": "Aucune commande",
-    "self": "vous"
+    "self": "vous",
+    "sizes": "Tailles (séparées par des virgules)",
+    "extraImages": "Photos supplémentaires (séparées par des virgules)"
   },
   "common": {
     "loading": "Chargement...",

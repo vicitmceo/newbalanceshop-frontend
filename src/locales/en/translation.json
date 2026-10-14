@@ -39,7 +39,9 @@
     "empty": "Nothing found for these filters",
     "inStock": "In stock",
     "lowStock": "{{count}} left",
-    "outOfStock": "Out of stock"
+    "outOfStock": "Out of stock",
+    "sizes": "Sizes",
+    "chooseSize": "Choose size"
   },
   "categories": {
     "1": "Sneakers",
@@ -71,7 +73,10 @@
     "photoNote": "Detail views are zoomed crops of the product photo",
     "similar": "Similar products",
     "addFav": "Add to favorites",
-    "removeFav": "Remove from favorites"
+    "removeFav": "Remove from favorites",
+    "size": "Size",
+    "chooseSize": "choose a size",
+    "photoBy": "Photo: {{author}}"
   },
   "cart": {
     "title": "Cart",
@@ -198,7 +203,9 @@
     "total": "Total",
     "statusUpdated": "Status updated",
     "noOrders": "No orders yet",
-    "self": "you"
+    "self": "you",
+    "sizes": "Sizes (comma-separated)",
+    "extraImages": "Extra photos (comma-separated)"
   },
   "common": {
     "loading": "Loading...",
