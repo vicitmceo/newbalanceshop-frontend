@@ -2,8 +2,8 @@
 const CREDITS = {
     '/images/nb574-b.jpg': 'MIKI Yoshihito, CC BY 2.0',
     '/images/nb574-c.jpg': 'MIKI Yoshihito, CC BY 2.0',
-    '/images/nb990w.jpg': 'slgckgc, CC BY 2.0',
-    '/images/nb-freshfoam.jpg': 'Ser Amantio di Nicolao, CC BY-SA 4.0',
+    '/images/nb1225.jpg': 'slgckgc, CC BY 2.0',
+    '/images/nb1062.jpg': 'Juan Fernández, CC BY-SA 2.0',
     '/images/nb-trailmore.jpg': 'Ssu, CC BY-SA 4.0',
     '/images/nb-beanie.jpg': 'ajay_suresh, CC BY 2.0',
     '/images/nb-hoodie-life.jpg': 'Patryk Sobczak, CC0',
