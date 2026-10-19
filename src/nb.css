@@ -121,3 +121,11 @@ h1, h2 { font-family: var(--serif); font-weight: 500; letter-spacing: 0; }
 .lang-switcher { appearance: none; -webkit-appearance: none; border: 1.5px solid #111; border-radius: 999px; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none' stroke='%23111' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 1l4 4 4-4'/%3E%3C/svg%3E") no-repeat right 12px center; padding: 7px 30px 7px 14px; font: 700 13px var(--sans); letter-spacing: .04em; color: #111; cursor: pointer; transition: background-color .15s, box-shadow .15s; }
 .lang-switcher:hover { background-color: #f4f4f4; }
 .lang-switcher:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(207,10,44,.25); border-color: var(--nb-red); }
+
+/* головний банер: текст ліворуч, товар праворуч, без накладання */
+.home-hero { background: #ece8e2; display: grid; grid-template-columns: 1fr 1fr; min-height: 520px; align-items: center; }
+.home-hero-text { color: #000; padding: 0 64px; max-width: none; }
+.home-hero-img { position: static; transform: none; width: 100%; max-height: 520px; object-fit: contain; filter: none; border-radius: 0; mix-blend-mode: multiply; }
+.home-hero .btn-light { background: #000; color: #fff; }
+.home-hero .btn-light:hover { background: var(--nb-red); }
+@media (max-width: 900px) { .home-hero { grid-template-columns: 1fr; } .home-hero-text { padding: 32px 20px 0; } .home-hero-img { opacity: 1; width: 100%; } }
