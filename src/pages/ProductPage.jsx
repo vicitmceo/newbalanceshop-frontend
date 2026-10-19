@@ -125,7 +125,7 @@ export default function ProductPage() {
                         <dt>{t('product.category')}</dt><dd>{t(`categories.${product.categoryId}`)}</dd>
                         <dt>{t('catalog.brand')}</dt><dd>{product.brand}</dd>
                         <dt>{t('catalog.sizes')}</dt><dd>{sizes.join(', ')}</dd>
-                        <dt>{t('product.color')}</dt><dd>{colorLabel(t, product.color)}</dd>
+                        {product.color && <><dt>{t('product.color')}</dt><dd>{colorLabel(t, product.color)}</dd></>}
                     </dl>
 
                     {sizes.length > 1 && (
