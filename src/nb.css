@@ -230,3 +230,12 @@ h1, h2 { font-family: var(--serif); font-weight: 500; letter-spacing: 0; }
 .foot-cols > div span { grid-column: 1 / -1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.45; }
 .foot-note { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 @media (max-width: 900px) { .foot-cols { grid-template-columns: 1fr; gap: 20px; } .foot-cols > div:last-child { grid-column: auto; } }
+
+/* однакова висота карток: кнопка завжди внизу на одному рівні */
+.grid { align-items: stretch; }
+.card { display: flex; flex-direction: column; height: 100%; }
+.card-body { display: flex; flex-direction: column; flex: 1; }
+.card-body h3 { min-height: 2.6em; }
+.card-add { margin-top: auto; }
+.card-sizes { margin-bottom: 12px; min-height: 0; }
+.price-line { margin-bottom: 8px; }
