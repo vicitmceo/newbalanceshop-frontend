@@ -240,5 +240,25 @@
     "generic": "Une erreur est survenue",
     "notFoundPage": "Page introuvable"
   },
-  "footer": "© New Balance Shop"
+  "footer": "© New Balance Shop",
+  "nb": {
+    "men": "Homme",
+    "women": "Femme",
+    "kids": "Enfant",
+    "sale": "Soldes",
+    "new": "Nouveautés",
+    "shopNow": "Découvrir",
+    "heroTitle": "La nouvelle collection",
+    "heroText": "Chaussures, vêtements et accessoires New Balance pour le mouvement au quotidien.",
+    "trending": "Tendances",
+    "shopAll": "Tout voir",
+    "results": "Résultats",
+    "freeShip": "Livraison offerte dès 3 000 ₴ · Retours sous 30 jours",
+    "filters": "Filtres",
+    "type": "Type",
+    "allTypes": "Tous les types",
+    "gender": "Genre",
+    "sizeLabel": "Taille",
+    "footDemo": "Projet de cours à but éducatif. Sans lien avec New Balance ; les noms et photos appartiennent à leurs propriétaires."
+  }
 }

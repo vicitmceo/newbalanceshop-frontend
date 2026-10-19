@@ -1,0 +1,80 @@
+# group|styleCode|name|nbCategory|priceUSD|path   (collected from the public listing pages of newbalance.com, 2026-10-19)
+# images: https://nb.scene7.com/is/image/NB/<styleCode>_nb_<NN>_i?$pdpflexf2$&wid=800&hei=800  (NN: shoes 02-07, apparel 70-75, accessories 03.. probe 200s)
+men-shoes|m10808mp|1080v15|Men's Running|169.99|/pd/1080v15/M1080V15_RU-FTW-802829-PMG-NA.html
+men-shoes|melps9ku|Ellipse|Men's Running|144.99|/pd/ellipse/MELPSV1_RU-FTW-802882-AUG0.html
+men-shoes|m108022w|1080v15 Suede|Men's Running|169.99|/pd/1080v15-suede/M1080V15_RU-FTW-825428.html
+men-shoes|mfcxlc5|FuelCell Rebel v5|Men's Running|144.99|/pd/fuelcell-rebel-v5/MFCXV5-50690.html
+men-shoes|macr18pu|AC Runner|Men's Running|149.99|/pd/ac-runner/MACR1V1_RU-FTW-802432-AUG0.html
+men-shoes|mrcel2hw|SuperComp Elite v6|Men's Running|274.99|/pd/supercomp-elite-v6/MRCELV6_RU-FTW-826130.html
+unisex-shoes|u9060493|9060|Unisex Lifestyle|159.99|/pd/9060/U9060V1-49464-PMG-NA.html
+unisex-shoes|u530scw|530|Unisex Lifestyle|109.99|/pd/530/U530V1_LI-FTW-834185-PMG-NA.html
+unisex-shoes|u7402cj|740|Unisex Lifestyle|114.99|/pd/740/U740V2_LI-FTW-826545-PMG-NA.html
+unisex-shoes|u9506i0|950|Unisex Lifestyle|119.99|/pd/950/U950V1_LI-FTW-852001-PMG-NA.html
+unisex-shoes|u204l5yb|204L|Unisex Lifestyle|119.99|/pd/204l/U204LV1-51907-PMG-NA.html
+unisex-shoes|u90609z4|9060|Unisex Lifestyle|159.99|/pd/9060/U9060V1_LI-FTW-825955-PMG-NA.html
+unisex-shoes|u4713g5|471|Unisex Lifestyle|109.99|/pd/471/U471V1-51464-PMG-NA.html
+unisex-shoes|u201079x|ABZORB 2010|Unisex Lifestyle|144.99|/pd/abzorb-2010/U2010V1_LI-FTW-801969-PMG-NA.html
+unisex-shoes|u7509ot|750|Unisex Lifestyle|99.99|/pd/750/U750V1_LI-FTW-851089-PMG-NA.html
+unisex-shoes|u204vmcv|204V|Unisex Lifestyle|119.99|/pd/204v/U204VV1_LI-FTW-834275-PMG-NA.html
+unisex-shoes|u992gy|Made in USA 992 Core|Unisex Lifestyle|199.99|/pd/made-in-usa-992-core/U992V1-48832-PMG-NA.html
+unisex-shoes|m5002yr|T500|Unisex Lifestyle|109.99|/pd/t500/CT500V1-48944-PMG-NA.html
+unisex-shoes|u1906567|1906R|Unisex Lifestyle|159.99|/pd/1906r/M1906RV1-47448-PMG-NA.html
+unisex-shoes|u530hfw|530 (white)|Unisex Lifestyle|109.99|/pd/530/MR530-32265-PMG-NA.html
+women-shoes|w880w15|Fresh Foam X 880v15|Women's Running|114.99|/pd/fresh-foam-x-880v15/W880V15-48604.html
+women-shoes|w327apc|327|Women's Lifestyle|104.99|/pd/327/WS327V1-41747-PMG-NA.html
+women-shoes|w10807pk|1080v15|Women's Running|169.99|/pd/1080v15/W1080V15_RU-FTW-874208-PMG-NA.html
+women-shoes|w8607fz|Fresh Foam X 860v15|Women's Running|149.99|/pd/fresh-foam-x-860v15/W860V15_RU-FTW-802889.html
+women-shoes|wl574evw|574 Core|Women's Lifestyle|99.99|/pd/574-core/WL574V3-40378.html
+women-shoes|w990gl6|Made in USA 990v6|Women's Lifestyle|199.99|/pd/made-in-usa-990v6/W990V6-43093-PMG-NA.html
+women-shoes|w10802j6|1080v15 Pykrete|Women's Running|169.99|/pd/1080v15-pykrete/W1080V15_RU-FTW-829189.html
+women-shoes|w6805kw|Fresh Foam 680v9|Women's Running|84.99|/pd/fresh-foam-680v9/W680V9_RU-FTW-802437.html
+women-shoes|waris682|Fresh Foam Arishi v4 Tiralux|Women's Running|79.99|/pd/fresh-foam-arishi-v4-tiralux/WARISV4-48848-PMG-NA.html
+kids-shoes|gr530sb1|530 Lace|Big Kids|84.99|/pd/530-lace/GR530V1-46715-PMG-NA.html
+kids-shoes|g9060793|9060 Lace|Big Kids|114.99|/pd/9060-lace/GC9060V1-47649-PMG-NA.html
+kids-shoes|p90602hq|9060 Lace|Little Kids|104.99|/pd/9060-lace/PC9060V1-46768-PMG-NA.html
+kids-shoes|pari3bq|Fresh Foam Arishi v4 Bungee Lace with Top Strap|Little Kids|54.99|/pd/fresh-foam-arishi-v4-bungee-lace-with-top-strap/PAARIV4-49592-PMG-NA.html
+kids-shoes|p5302y1|530 Bungee|Little Kids|79.99|/pd/530-bungee/PZ530V1-46716-PMG-NA.html
+kids-shoes|i5749ci|574 NEW-B Hook & Loop|Toddlers|64.99|/pd/574-new-b-hook-and-loop/I574V2_KL-FTW-801800-PMG-NA.html
+kids-shoes|irav7m0|Rave Run v2 Bungee Lace with Top Strap|Toddlers|49.99|/pd/rave-run-v2-bungee-lace-with-top-strap/ITRAVV2-52196-PMG-NA.html
+kids-shoes|gc574evg|574 Core Lace|Big Kids|79.99|/pd/574-core-lace/GC574V1-40458-PMG-NA.html
+kids-shoes|grav7vq|Rave Run v2 LACE|Big Kids|59.99|/pd/rave-run-v2-lace/GKRAVV2-37444-PMG-NA.html
+kids-shoes|g62513h|625 LACE|Big Kids|64.99|/pd/625-lace/G625V1_KP-FTW-801932-PMG-NA.html
+men-clothing|mj62j6lapdr|NYC Marathon Finisher Marathon Jacket|Jackets & Vests|149.99|/pd/nyc-marathon-finisher-marathon-jacket/MJ62J6LA.html
+men-clothing|mp41503nny|Sport Essentials Fleece Jogger|Pants|64.99|/pd/sport-essentials-fleece-jogger/MP41503.html
+men-clothing|mt62y14pahh|Trackside Fleece Hoodie|Hoodies & Sweatshirts|79.99|/pd/trackside-fleece-hoodie/MT62Y14P.html
+men-clothing|mb62g6zvahh|Trackside Fleece Pant|Pants|69.99|/pd/trackside-fleece-pant/MB62G6ZV.html
+men-clothing|mt41253smv|RC Essential T-Shirt|Shirts|49.99|/pd/rc-essential-t-shirt/MT41253.html
+men-clothing|mt41511nbe|Sport Essentials Fleece Hoodie|Hoodies & Sweatshirts|69.99|/pd/sport-essentials-fleece-hoodie/MT41511.html
+men-clothing|mj62g17ogee|Boston Puffer Jacket|Jackets & Vests|129.99|/pd/boston-puffer-jacket/MJ62G17O.html
+men-clothing|mt41510ag|Sport Essentials Fleece Crew|Hoodies & Sweatshirts|64.99|/pd/sport-essentials-fleece-crew/MT41510.html
+men-clothing|mb61c99eylr|RC Essential Short 7"|Shorts|49.99|/pd/rc-essential-short-7/MB61C99E.html
+men-clothing|mt62n14zsts|NYC Marathon RC Essential Heat Grid 1/2 Zip|Shirts|99.99|/pd/nyc-marathon-rc-essential-heat-grid-12-zip/MT62N14Z.html
+men-clothing|mt62l1qjylr|Athletics Crafted Fleece Hoodie|Hoodies & Sweatshirts|99.99|/pd/athletics-crafted-fleece-hoodie/MT62L1QJ.html
+men-clothing|mb6180taylr|RC Essential Short 5"|Shorts|49.99|/pd/rc-essential-short-5/MB6180TA.html
+women-clothing|wj62s3kzylr|NYC Marathon Finisher Marathon Jacket|Jackets & Vests|149.99|/pd/nyc-marathon-finisher-marathon-jacket/WJ62S3KZ.html
+women-clothing|wj6204ouaa9|NYC Marathon Reflective RC Jacket|Jackets & Vests|189.99|/pd/nyc-marathon-reflective-rc-jacket/WJ6204OU.html
+women-clothing|wt62h09fpdr|NYC Marathon Athletics French Terry Finisher Hoodie|Hoodies & Sweatshirts|94.99|/pd/nyc-marathon-athletics-french-terry-finisher-hoodie/WT62H09F.html
+women-clothing|wb62983andg|Trackside Fleece Pant|Pants|64.99|/pd/trackside-fleece-pant/WB62983A.html
+women-clothing|wt62p1x6pl1|NYC Marathon RC Essential Finisher T-Shirt|Shirts|59.99|/pd/nyc-marathon-rc-essential-finisher-t-shirt/WT62P1X6.html
+women-clothing|wb62w1j3muw|Tournament NYC Skort|Skirts & Dresses|69.99|/pd/tournament-nyc-skort/WB62W1J3.html
+women-clothing|wb61i098pdr|RC Elite Storage Short 6"|Shorts|69.99|/pd/rc-elite-storage-short-6/WB61I098.html
+women-clothing|wp51275ylr|RC Pocket Legging 27"|Leggings|89.99|/pd/rc-pocket-legging-27/WP51275.html
+women-clothing|wt62344kndg|Trackside Fleece Hoodie|Hoodies & Sweatshirts|74.99|/pd/trackside-fleece-hoodie/WT62344K.html
+women-clothing|wp53504bft|Woven Cargo Pant|Pants|79.99|/pd/woven-cargo-pant/WP53504.html
+bags|ac8134raga|Urban Duffel|Bags & Backpacks|79.99|/pd/urban-duffel/AC8134R.html
+bags|ac54993aga|Urban Sling Bag|Bags & Backpacks|39.99|/pd/urban-sling-bag/AC54993.html
+bags|ac6026rbk|NYC Marathon Foldable Backpack|Bags & Backpacks|44.99|/pd/nyc-marathon-foldable-backpack/AC6026R.html
+bags|ac3405tdnt|Urban Backpack|Bags & Backpacks|79.99|/pd/urban-backpack/AC3405T.html
+bags|ac1679hdnt|Wayfinder Pack|Bags & Backpacks|124.99|/pd/wayfinder-pack/AC1679H.html
+bags|ac99066dnt|Elevate Pack|Bags & Backpacks|99.99|/pd/elevate-pack/AC99066.html
+bags|acr1f5ynog|Graphic Tote Bag|Bags & Backpacks|31.99|/pd/graphic-tote-bag/ACR1F5Y.html
+bags|ac4497ktre|Basketball Duffle Bag|Bags & Backpacks|74.99|/pd/basketball-duffle-bag/AC4497K.html
+bags|ac8227usst|RC Pack|Bags & Backpacks|119.99|/pd/rc-pack/AC8227U.html
+accessories|ac98012pdr|NYC Marathon Finisher Clean Up|Hats|47.99|/pd/nyc-marathon-finisher-clean-up/AC98012.html
+accessories|lah91021bk|Light Weight Skullcap|Hats & Gloves|21.99|/pd/light-weight-skullcap/LAH91021.html
+accessories|lah00143atd|'47 Clean Up Ultimate Run Hat|Hats|49.99|/pd/47-clean-up-ultimate-run-hat/LAH00143.html
+accessories|ac97151pdr|NYC Marathon Finisher Cuff Knit Hat|Hats|54.99|/pd/nyc-marathon-finisher-cuff-knit-hat/AC97151.html
+accessories|ac90347bk|NYC Marathon Midweight Borough Glove|Gloves|37.99|/pd/nyc-marathon-midweight-borough-glove/AC90347.html
+accessories|ac98743as1|Active Premium Crew 3 Pack|Socks|24.99|/pd/active-premium-crew-3-pack/AC98743.html
+accessories|las65201wt|Active Crew Socks 6 Pack|Socks|27.99|/pd/active--crew-socks-6-pack/LAS65201.html
+accessories|las25143wt|Pro Training Cushion Tab Socks 2 Pack|Socks|24.99|/pd/pro-training-cushion-tab-socks-2-pack/LAS25143.html
