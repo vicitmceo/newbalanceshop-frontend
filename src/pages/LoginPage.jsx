@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, Navigate, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import CountrySelect from '../components/CountrySelect.jsx';
 import SocialLogin from '../components/SocialLogin.jsx';
 import { ApiError } from '../api.js';
 import { useShop } from '../context/ShopContext.jsx';
@@ -107,7 +108,7 @@ export default function LoginPage({ initialMode = 'login' }) {
                             </label>
                             <label className="f">
                                 <span>{t('auth.country')}</span>
-                                <input className="input" autoComplete="country-name" value={form.country} onChange={set('country')} />
+                                <CountrySelect autoComplete="country-name" value={form.country} onChange={set('country')} />
                             </label>
                         </div>
                     )}

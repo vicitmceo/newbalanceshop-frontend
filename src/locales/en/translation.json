@@ -155,7 +155,8 @@
     "firebaseOff": "Google sign-in is not configured on this site",
     "googleFailed": "Google sign-in failed",
     "githubFailed": "GitHub sign-in failed",
-    "loggedOut": "You have signed out"
+    "loggedOut": "You have signed out",
+    "selectCountry": "Select a country"
   },
   "account": {
     "title": "My account",
@@ -223,7 +224,8 @@
     "close": "Close",
     "yes": "Yes",
     "no": "No",
-    "retry": "Try again"
+    "retry": "Try again",
+    "waking": "The server is waking up after idling, this can take up to a minute..."
   },
   "errors": {
     "network": "Cannot reach the server. It may be waking up (up to a minute). Please try again.",

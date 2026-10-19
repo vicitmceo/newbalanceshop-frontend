@@ -18,6 +18,7 @@ export default function CatalogPage() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const [search, setSearch] = useState(params.get('q') || '');
+    const [slow, setSlow] = useState(false);
 
     const cat = params.get('cat') || '';
     const sort = params.get('sort') || '';
@@ -63,6 +64,13 @@ export default function CatalogPage() {
             .finally(() => { if (!cancelled) setLoading(false); });
         return () => { cancelled = true; };
     }, [cat, q, brand, min, max, size, sort, i18n.language, errorText]);
+
+    // безкоштовний сервер засинає: якщо відповіді немає кілька секунд, пояснюємо чому
+    useEffect(() => {
+        if (!loading) { setSlow(false); return undefined; }
+        const id = setTimeout(() => setSlow(true), 5000);
+        return () => clearTimeout(id);
+    }, [loading]);
 
     const brands = useMemo(() => [...new Set(allProducts.map((p) => p.brand))].sort(), [allProducts]);
     const sizes = useMemo(() => [...new Set(allProducts.flatMap(sizesOf))].sort(compareSizes), [allProducts]);
@@ -131,7 +139,7 @@ export default function CatalogPage() {
                 )}
 
                 {loading ? (
-                    <div className="loader"><div className="spinner" /><span>{t('common.loading')}</span></div>
+                    <div className="loader"><div className="spinner" /><span>{slow ? t('common.waking') : t('common.loading')}</span></div>
                 ) : products.length === 0 && !error ? (
                     <p className="empty">{t('catalog.empty')}</p>
                 ) : (
