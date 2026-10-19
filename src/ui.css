@@ -457,3 +457,25 @@ a.cart-badge { text-decoration: none; }
 /* узькі сторінки (замовлення, кабінет): має йти після загального .main */
 .main.narrow { max-width: 780px; }
 .main.auth-page { max-width: 520px; }
+
+/* ---------- Перемикач мови ---------- */
+
+.lang-switcher {
+    appearance: none;
+    -webkit-appearance: none;
+    height: 36px;
+    padding: 0 30px 0 14px;
+    border: 1px solid var(--nb-gray-200);
+    border-radius: 999px;
+    background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23111' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 11px center;
+    color: var(--nb-black);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.lang-switcher:hover { border-color: var(--nb-black); }
+.lang-switcher:focus-visible { outline: none; border-color: var(--nb-black); box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.12); }
+.lang-switcher option { font-weight: 600; letter-spacing: 0; }
