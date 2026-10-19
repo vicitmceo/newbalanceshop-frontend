@@ -74,7 +74,6 @@ export default function CatalogPage() {
     return (
         <>
             <div className="hero">
-                <div className="hero-photo" style={{ backgroundImage: "url(/images/nb1906r.jpg)" }} role="img" aria-label="New Balance 1906R" />
                 <div className="hero-inner">
                     <span className="hero-eyebrow">{t('hero.eyebrow')}</span>
                     <h1 className="hero-title">{t('brand.subtitle')}</h1>
