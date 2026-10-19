@@ -129,3 +129,38 @@ h1, h2 { font-family: var(--serif); font-weight: 500; letter-spacing: 0; }
 .home-hero .btn-light { background: #000; color: #fff; }
 .home-hero .btn-light:hover { background: var(--nb-red); }
 @media (max-width: 900px) { .home-hero { grid-template-columns: 1fr; } .home-hero-text { padding: 32px 20px 0; } .home-hero-img { opacity: 1; width: 100%; } }
+
+/* ===== Кнопки: єдиний акуратний стиль ===== */
+.btn, .btn-light { border-radius: 999px; font-family: var(--sans); font-weight: 700; letter-spacing: .01em; cursor: pointer; transition: background-color .18s, color .18s, border-color .18s, box-shadow .18s, transform .12s; }
+.btn { padding: 11px 24px; font-size: 14px; border: 1.5px solid transparent; }
+.btn-primary { background: #111; color: #fff; border-color: #111; box-shadow: 0 2px 0 rgba(0,0,0,.08); }
+.btn-primary:hover:not(:disabled) { background: var(--nb-red); border-color: var(--nb-red); box-shadow: 0 8px 18px rgba(207,10,44,.28); transform: translateY(-1px); }
+.btn-primary:active:not(:disabled) { transform: translateY(0); box-shadow: none; }
+.btn-ghost, .btn-secondary { background: #fff; color: #111; border-color: #111; }
+.btn-ghost:hover:not(:disabled), .btn-secondary:hover:not(:disabled) { background: #111; color: #fff; }
+.btn-danger { background: #fff; color: var(--bad); border-color: #f0b8c0; }
+.btn-danger:hover:not(:disabled) { background: var(--bad); color: #fff; border-color: var(--bad); }
+.btn-small { padding: 7px 16px; font-size: 12px; }
+.btn-large { padding: 15px 32px; font-size: 15px; }
+.btn:focus-visible, .btn-light:focus-visible, .size-chip:focus-visible, .opt:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(207,10,44,.3); }
+.btn-light { background: #fff; color: #111; border: 1.5px solid #fff; padding: 13px 30px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+.btn-light:hover { background: #111; color: #fff; border-color: #111; transform: translateY(-1px); }
+.home-hero .btn-light { background: #111; color: #fff; border-color: #111; }
+.home-hero .btn-light:hover { background: var(--nb-red); border-color: var(--nb-red); box-shadow: 0 8px 18px rgba(207,10,44,.28); }
+.card-add { border-radius: 999px; background: #111; margin-top: 12px; padding: 11px; }
+.card-add:hover:not(:disabled) { background: var(--nb-red); box-shadow: 0 8px 18px rgba(207,10,44,.28); transform: translateY(-1px); }
+.size-chip, .size-chip-sm { border-radius: 999px; border: 1.5px solid #d6d6d6; transition: all .15s; }
+.size-chip:hover { border-color: #111; background: #f6f6f6; }
+.size-chip.active { background: #111; color: #fff; border-color: #111; }
+.size-grid .size-chip { border-radius: 10px; }
+.fav-btn { border-radius: 50%; width: 38px; height: 38px; display: grid; place-items: center; border: 0; background: rgba(255,255,255,.9); box-shadow: 0 2px 10px rgba(0,0,0,.1); transition: transform .15s, color .15s; }
+.fav-btn:hover { transform: scale(1.1); color: var(--nb-red); }
+.btn-social { border-radius: 999px; padding: 12px 20px; border: 1.5px solid #d6d6d6; background: #fff; color: #111; font-weight: 700; display: flex; width: 100%; justify-content: center; gap: 10px; transition: all .18s; }
+.btn-social:hover { border-color: #111; box-shadow: 0 6px 16px rgba(0,0,0,.1); transform: translateY(-1px); }
+.seg { border-radius: 999px; background: #f1f1f1; padding: 4px; display: flex; }
+.seg button { border-radius: 999px; border: 0; flex: 1; padding: 10px; font: 700 14px var(--sans); background: transparent; cursor: pointer; transition: all .18s; }
+.seg button.active { background: #111; color: #fff; box-shadow: 0 4px 12px rgba(0,0,0,.18); }
+.sort-select, .input, .head-search input { border-radius: 12px; }
+.head-search input { border-radius: 999px; }
+.auth-card, .cart-card, .pdp-info { border-radius: 20px; }
+.chip { border-radius: 999px; }
