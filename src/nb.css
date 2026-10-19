@@ -186,3 +186,12 @@ h1, h2 { font-family: var(--serif); font-weight: 500; letter-spacing: 0; }
 .main > h1, .main .page-title, .cart-head h1 { font-size: 40px; margin: 0 0 20px; }
 .pdp-title { font-size: 44px; line-height: 1.05; }
 .pdp-price { font-size: 24px; font-weight: 700; }
+
+/* мобільна версія: колонки не вилазять за екран */
+.plp-results, .plp-body > * { min-width: 0; }
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .card-body, .card-sizes { min-width: 0; }
+  .size-chip-sm { padding: 3px 7px; }
+  html, body { overflow-x: hidden; }
+}
