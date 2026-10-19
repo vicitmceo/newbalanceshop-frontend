@@ -223,3 +223,10 @@ h1, h2 { font-family: var(--serif); font-weight: 500; letter-spacing: 0; }
   .foot-cols a, .foot-cols span { padding: 6px 0; font-size: 15px; }
   .foot-note { margin-top: 24px; padding-top: 16px; font-size: 11px; line-height: 1.5; }
 }
+
+/* футер: посилання сіткою замість вертикального списку, текст до 3 рядків */
+.foot-cols > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; align-content: start; }
+.foot-cols > div h4 { grid-column: 1 / -1; }
+.foot-cols > div span { grid-column: 1 / -1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.45; }
+.foot-note { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+@media (max-width: 900px) { .foot-cols { grid-template-columns: 1fr; gap: 20px; } .foot-cols > div:last-child { grid-column: auto; } }
