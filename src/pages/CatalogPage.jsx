@@ -27,6 +27,7 @@ export default function CatalogPage() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const [slow, setSlow] = useState(false);
+    const [filtersOpen, setFiltersOpen] = useState(false);
 
     const g = params.get('g') || '';
     const sale = params.get('sale') || '';
@@ -148,7 +149,8 @@ export default function CatalogPage() {
             </div>
 
             <div className="plp-body">
-                <aside className="plp-filters">
+                <button type="button" className="filters-toggle" onClick={() => setFiltersOpen((v) => !v)} aria-expanded={filtersOpen}>{t('nb.filters')} {filtersOpen ? '−' : '+'}</button>
+                <aside className={`plp-filters ${filtersOpen ? 'open' : ''}`}>
                     <h3>{t('nb.filters')}</h3>
                     <fieldset>
                         <legend>{t('nb.gender')}</legend>
