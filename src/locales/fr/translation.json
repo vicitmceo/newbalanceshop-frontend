@@ -156,7 +156,8 @@
     "firebaseOff": "La connexion Google n'est pas configurée sur ce site",
     "googleFailed": "Échec de la connexion Google",
     "githubFailed": "Échec de la connexion GitHub",
-    "loggedOut": "Vous êtes déconnecté"
+    "loggedOut": "Vous êtes déconnecté",
+    "selectCountry": "Choisir un pays"
   },
   "account": {
     "title": "Mon compte",
@@ -224,7 +225,8 @@
     "close": "Fermer",
     "yes": "Oui",
     "no": "Non",
-    "retry": "Réessayer"
+    "retry": "Réessayer",
+    "waking": "Le serveur se réveille après une période d'inactivité, cela peut prendre jusqu'à une minute..."
   },
   "errors": {
     "network": "Serveur injoignable. Il se réveille peut-être (jusqu'à une minute). Réessayez.",

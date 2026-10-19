@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { api } from '../api.js';
+import CountrySelect from '../components/CountrySelect.jsx';
 import { useShop } from '../context/ShopContext.jsx';
 
 export default function AccountPage() {
@@ -69,7 +70,7 @@ export default function AccountPage() {
                 <div className="f-row">
                     <label className="f"><span>{t('auth.phone')}</span><input className="input" type="tel" value={form.phone} onChange={set('phone')} /></label>
                     <label className="f"><span>{t('auth.city')}</span><input className="input" value={form.city} onChange={set('city')} /></label>
-                    <label className="f"><span>{t('auth.country')}</span><input className="input" value={form.country} onChange={set('country')} /></label>
+                    <label className="f"><span>{t('auth.country')}</span><CountrySelect autoComplete="country-name" value={form.country} onChange={set('country')} /></label>
                 </div>
                 <div className="row-actions">
                     <button className="btn btn-primary" type="submit" disabled={busy}>{t('account.save')}</button>
