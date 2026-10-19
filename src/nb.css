@@ -164,3 +164,19 @@ h1, h2 { font-family: var(--serif); font-weight: 500; letter-spacing: 0; }
 .head-search input { border-radius: 999px; }
 .auth-card, .cart-card, .pdp-info { border-radius: 20px; }
 .chip { border-radius: 999px; }
+
+/* кастомний перемикач мови */
+.lang { position: relative; }
+.lang-btn { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid #111; border-radius: 999px; background: #fff; padding: 7px 14px; font: 700 13px var(--sans); letter-spacing: .04em; color: #111; cursor: pointer; transition: background-color .15s, box-shadow .15s; }
+.lang-btn:hover { background: #f4f4f4; }
+.lang-btn:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(207,10,44,.3); }
+.lang-caret { transition: transform .2s; }
+.lang-caret.open { transform: rotate(180deg); }
+.lang-menu { position: absolute; right: 0; top: calc(100% + 8px); min-width: 190px; margin: 0; padding: 6px; list-style: none; background: #fff; border: 1px solid #e6e6e6; border-radius: 16px; box-shadow: 0 16px 40px rgba(0,0,0,.16); z-index: 80; animation: langIn .14s ease-out; }
+@keyframes langIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.lang-item { display: flex; align-items: center; gap: 12px; width: 100%; border: 0; background: none; padding: 10px 12px; border-radius: 10px; font: 600 14px var(--sans); color: #111; cursor: pointer; text-align: left; transition: background-color .12s; }
+.lang-item:hover { background: #f3f3f3; }
+.lang-item.on { background: #111; color: #fff; }
+.lang-code { font-weight: 800; letter-spacing: .04em; width: 26px; }
+.lang-name { flex: 1; font-weight: 500; }
+.lang-check { font-size: 13px; }
