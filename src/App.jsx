@@ -12,6 +12,7 @@ import AccountPage from './pages/AccountPage.jsx';
 import AdminPage from './pages/AdminPage.jsx';
 import './App.css';
 import './ui.css';
+import './nb.css';
 
 function NotFound() {
     const { t } = useTranslation();

@@ -239,5 +239,25 @@
     "generic": "Something went wrong",
     "notFoundPage": "Page not found"
   },
-  "footer": "© New Balance Shop"
+  "footer": "© New Balance Shop",
+  "nb": {
+    "men": "Men",
+    "women": "Women",
+    "kids": "Kids",
+    "sale": "Sale",
+    "new": "New",
+    "shopNow": "Shop now",
+    "heroTitle": "The new collection",
+    "heroText": "New Balance shoes, apparel and accessories for everyday movement.",
+    "trending": "Trending now",
+    "shopAll": "Shop all",
+    "results": "Results",
+    "freeShip": "Free delivery over ₴3,000 · 30-day returns",
+    "filters": "Filters",
+    "type": "Type",
+    "allTypes": "All types",
+    "gender": "Gender",
+    "sizeLabel": "Size",
+    "footDemo": "Educational course project. Not affiliated with New Balance; product names and photos belong to their owners."
+  }
 }

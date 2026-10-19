@@ -5,13 +5,8 @@ import LanguageSwitcher from './LanguageSwitcher.jsx';
 import Toasts from './Toasts.jsx';
 import { useShop } from '../context/ShopContext.jsx';
 
-function BrandMark() {
-    return (
-        <svg className="brand-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="40" height="40" rx="8" fill="var(--nb-black)" />
-            <path d="M10 30V10h5.2l9.6 13.6V10H30v20h-5.2L15.2 16.4V30H10z" fill="var(--nb-red)" />
-        </svg>
-    );
+function NbLogo() {
+    return <span className="nb-logo" aria-label="New Balance Shop">NB</span>;
 }
 
 export default function Layout() {
@@ -64,31 +59,29 @@ export default function Layout() {
 
     return (
         <div className="app">
+            <div className="announce">{t('nb.freeShip')}</div>
             <header className="header">
                 <div className="header-inner">
-                    <Link to="/" className="brand" aria-label={t('brand.title')}>
-                        <BrandMark />
-                        <span className="brand-title">{t('brand.title')}</span>
-                    </Link>
+                    <Link to="/" className="brand" aria-label={t('brand.title')}><NbLogo /></Link>
                     <nav className="nav" aria-label="main">
-                        <NavLink to="/" end className={navClass}>{t('nav.catalog')}</NavLink>
-                        <NavLink to="/fav" className={navClass}>
-                            {t('nav.favorites')}{favorites.length > 0 && <span className="nav-count">{favorites.length}</span>}
-                        </NavLink>
-                        <NavLink to="/orders" className={navClass}>{t('nav.orders')}</NavLink>
-                        {customer?.isAdmin && <NavLink to="/admin" className={navClass}>{t('nav.admin')}</NavLink>}
+                        <NavLink to="/?new=1" className="nav-btn">{t('nb.new')}</NavLink>
+                        <NavLink to="/?g=men" className="nav-btn">{t('nb.men')}</NavLink>
+                        <NavLink to="/?g=women" className="nav-btn">{t('nb.women')}</NavLink>
+                        <NavLink to="/?g=kids" className="nav-btn">{t('nb.kids')}</NavLink>
+                        <NavLink to="/?sale=1" className="nav-btn nav-sale">{t('nb.sale')}</NavLink>
                     </nav>
                     <div className="header-actions">
                         <LanguageSwitcher />
-
+                        <form className="head-search" onSubmit={(e) => { e.preventDefault(); const q = new FormData(e.currentTarget).get('q'); navigate(`/?q=${encodeURIComponent(String(q || '').trim())}`); }}>
+                            <input name="q" type="search" placeholder={t('catalog.search')} aria-label={t('catalog.search')} />
+                        </form>
+                        <Link className="icon-link" to="/fav" aria-label={t('nav.favorites')}>
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"><path d="M12 20.5s-8-4.9-8-11A4.6 4.6 0 0 1 8.6 5c1.5 0 2.7.7 3.4 1.8C12.7 5.7 13.9 5 15.4 5A4.6 4.6 0 0 1 20 9.5c0 6.1-8 11-8 11z" /></svg>
+                            {favorites.length > 0 && <span className="dot-count">{favorites.length}</span>}
+                        </Link>
                         {customer ? (
                             <div className="account" ref={menuRef}>
-                                <button
-                                    className="icon-toggle is-signed-in"
-                                    onClick={() => setMenuOpen((v) => !v)}
-                                    aria-label={t('nav.account')}
-                                    aria-expanded={menuOpen}
-                                >
+                                <button className="icon-link" onClick={() => setMenuOpen((v) => !v)} aria-label={t('nav.account')} aria-expanded={menuOpen}>
                                     <span className="avatar-initial">{(customer.fullName || customer.email || '?').trim()[0].toUpperCase()}</span>
                                 </button>
                                 {menuOpen && (
@@ -109,16 +102,14 @@ export default function Layout() {
                                 )}
                             </div>
                         ) : (
-                            <Link className="btn btn-primary btn-small" to="/login" state={{ from: location.pathname }}>{t('nav.login')}</Link>
+                            <Link className="icon-link login-link" to="/login" state={{ from: location.pathname }}>
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6"><circle cx="12" cy="8" r="4" /><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" strokeLinecap="round" /></svg>
+                                <span>{t('nav.login')}</span>
+                            </Link>
                         )}
-
-                        <Link className="cart-badge" to="/cart" aria-label={t('cart.title')}>
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                                <circle cx="9" cy="20" r="1.4" />
-                                <circle cx="18" cy="20" r="1.4" />
-                                <path d="M2.5 3h2l2.2 12.4a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L21 7H6" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                            {cartCount}
+                        <Link className="icon-link" to="/cart" aria-label={t('cart.title')}>
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"><path d="M5 8h14l-1 12H6L5 8z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" strokeLinecap="round" /></svg>
+                            {cartCount > 0 && <span className="dot-count">{cartCount}</span>}
                         </Link>
                     </div>
                 </div>
@@ -128,7 +119,12 @@ export default function Layout() {
 
             <footer className="footer">
                 <div className="footer-inner">
-                    <span>{t('footer')}</span>
+                    <div className="foot-cols">
+                        <div><h4>Shop</h4><Link to="/?g=men">{t('nb.men')}</Link><Link to="/?g=women">{t('nb.women')}</Link><Link to="/?g=kids">{t('nb.kids')}</Link><Link to="/?sale=1">{t('nb.sale')}</Link></div>
+                        <div><h4>{t('nav.account')}</h4><Link to="/account">{t('nav.account')}</Link><Link to="/orders">{t('nav.orders')}</Link><Link to="/fav">{t('nav.favorites')}</Link><Link to="/cart">{t('cart.title')}</Link></div>
+                        <div><h4>Info</h4><span>{t('nb.freeShip')}</span></div>
+                    </div>
+                    <p className="foot-note">{t('nb.footDemo')}</p>
                 </div>
             </footer>
             <Toasts />

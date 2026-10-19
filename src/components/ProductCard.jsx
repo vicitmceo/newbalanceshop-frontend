@@ -55,10 +55,12 @@ export default function ProductCard({ product, isNew = false }) {
         notify(fav ? t('product.removedFav') : t('product.addedFav'), 'info');
     };
 
+    const onSale = product.oldPrice && product.oldPrice > product.price;
+
     return (
         <article className="card">
             <div className="card-thumb">
-                {isNew && <span className="card-badge">{t('catalog.newBadge')}</span>}
+                {onSale ? <span className="card-badge badge-sale">{t('nb.sale')}</span> : isNew && <span className="card-badge">{t('catalog.newBadge')}</span>}
                 <button
                     className={`fav-btn ${fav ? 'is-fav' : ''}`}
                     onClick={toggleFav}
@@ -70,12 +72,18 @@ export default function ProductCard({ product, isNew = false }) {
                 </button>
                 <Link to={`/product/${product.id}`} className="card-thumb-link" aria-label={product.name}>
                     <ProductImage product={product} />
+                    {(product.extraImages || '').split(',')[0]?.trim() && <img className="card-alt" src={product.extraImages.split(',')[0].trim()} alt="" loading="lazy" />}
                 </Link>
             </div>
             <div className="card-body">
                 <h3><Link to={`/product/${product.id}`}>{product.name}</Link></h3>
-                <p className="brand-name">{product.brand} · {colorLabel(t, product.color)}</p>
-                <p className={`stock stock-${stock.tone}`}>{stock.text}</p>
+                <p className="brand-name">{product.productType || product.brand}</p>
+                <p className="price-line">
+                    <span className={`price ${onSale ? 'price-sale' : ''}`}>{money(product.price)}</span>
+                    {onSale && <s className="price-old">{money(product.oldPrice)}</s>}
+                </p>
+                {product.stock > 0 && product.stock <= 5 && <p className="stock stock-low">{stock.text}</p>}
+                {product.stock <= 0 && <p className="stock stock-out">{stock.text}</p>}
 
                 {sizes.length > 1 && (
                     <div className={`card-sizes ${needSize && !size ? 'sizes-error' : ''}`} role="radiogroup" aria-label={t('product.size')}>
@@ -93,13 +101,9 @@ export default function ProductCard({ product, isNew = false }) {
                         ))}
                     </div>
                 )}
-
-                <div className="card-footer">
-                    <span className="price">{money(product.price)}</span>
-                    <button className="btn btn-primary" onClick={add} disabled={product.stock <= 0}>
-                        {t('catalog.addToCart')}
-                    </button>
-                </div>
+                <button className="btn btn-primary card-add" onClick={add} disabled={product.stock <= 0}>
+                    {t('catalog.addToCart')}
+                </button>
             </div>
         </article>
     );
