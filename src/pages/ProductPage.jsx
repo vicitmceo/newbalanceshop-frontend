@@ -114,7 +114,7 @@ export default function ProductPage() {
                 <div className="pdp-info">
                     <p className="brand-name">{product.brand}</p>
                     <h1 className="pdp-title">{product.name}</h1>
-                    <p className="pdp-price">{money(product.price)}</p>
+                    <p className="pdp-price">{money(product.price)}{product.oldPrice > product.price && <s className="price-old" style={{ marginLeft: 12, fontSize: 18 }}>{money(product.oldPrice)}</s>}</p>
                     <p className={`stock stock-${stock.tone}`}>{stock.text}</p>
 
                     <h2 className="pdp-h">{t('product.description')}</h2>
