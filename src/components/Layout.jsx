@@ -124,7 +124,7 @@ export default function Layout() {
                         <div><h4>{t('nav.account')}</h4><Link to="/account">{t('nav.account')}</Link><Link to="/orders">{t('nav.orders')}</Link><Link to="/fav">{t('nav.favorites')}</Link><Link to="/cart">{t('cart.title')}</Link></div>
                         <div><h4>Info</h4><span>{t('nb.freeShip')}</span></div>
                     </div>
-                    <p className="foot-note">{t('nb.footDemo')}</p>
+                    
                 </div>
             </footer>
             <Toasts />
